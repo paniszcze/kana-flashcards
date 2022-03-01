@@ -1,20 +1,17 @@
-import React, {Component} from 'react';
+import { useState } from 'react';
+import '../styles/main.css';
 
-class Content extends Component {
-  render() {
-    return (
-      <div class="container">
-        <div class="card" id="card">
-          <div class="front">
-            front
-          </div>
-          <div class="back">
-            back
-          </div>
+export default function Content() {
+  return (
+    <div className="container">
+      <div className="card" id="card">
+        <div className="front">
+          front
+        </div>
+        <div className="back">
+          back
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
-
-export default Content;
