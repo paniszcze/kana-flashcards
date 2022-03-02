@@ -15,7 +15,7 @@ export default function Content() {
 
   return (
     <div className="container">
-      <Flashcard flipped={flipped} flipFlashcard={flipFlashcard} />
+      <Flashcard card={{front: "front text", back: "back text"}} flipped={flipped} flipFlashcard={flipFlashcard} />
       <div className="dashboard">
         <Counter />
         <Assessment />

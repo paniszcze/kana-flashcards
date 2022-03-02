@@ -1,31 +1,46 @@
 .flashcard {
   min-width: 460px;
   min-height: 320px;
-  background: #ffffff;
-
-  display: block;
-  border-radius: 6px;
-}
-
-.flashcard .front {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
-}
-
-.flipped .front {
-  transition: rotateY(90deg);
-  transition-delay: 0s;
-} 
-
-.flashcard .back {
-  background: #704E2E;
-  color: #FAD4C0;
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
-  position: absolute;
+  perspective: 1000;
+  display: inline-block;
 }
 
 .flipped .back {
   transform: rotateY(0deg);
-  transition-delay: 0.2s;
+}
+
+.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.flipper {
+  transition: 0.4s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  transition: 0.4s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 320px;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.front {
+  z-index: 2;
+  background: #FFFFFF;
+}
+
+.back {
+  transform: rotateY(-180deg);
+  background: #704E2E;
+  color: #FAD4C0;
 }
