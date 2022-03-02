@@ -1,0 +1,31 @@
+.flashcard {
+  min-width: 460px;
+  min-height: 320px;
+  background: #ffffff;
+
+  display: block;
+  border-radius: 6px;
+}
+
+.flashcard .front {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.flipped .front {
+  transition: rotateY(90deg);
+  transition-delay: 0s;
+} 
+
+.flashcard .back {
+  background: #704E2E;
+  color: #FAD4C0;
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+
+.flipped .back {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
