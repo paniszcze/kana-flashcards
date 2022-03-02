@@ -13,9 +13,14 @@ export default function Content() {
     setFlipped(!flipped);
   };
 
+  const card = {
+    front: "か",
+    back: "ka"
+  }
+
   return (
     <div className="container">
-      <Flashcard card={{front: "front text", back: "back text"}} flipped={flipped} flipFlashcard={flipFlashcard} />
+      <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
       <div className="dashboard">
         <Counter />
         <Assessment />

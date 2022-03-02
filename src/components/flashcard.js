@@ -7,7 +7,7 @@ export default function Flashcard({ card, flipped, flipFlashcard }) {
       <div className={flipped ? "flipped" : ""}>
         <div className="flipper">
           <div className="front">
-            {card.front}
+            <span className="japanese">{card.front}</span>
           </div>
           <div className="back">
             {card.back}

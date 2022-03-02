@@ -32,6 +32,11 @@
   min-height: 320px;
   border-radius: 6px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
+  font-weight: bold;
 }
 
 .front {
