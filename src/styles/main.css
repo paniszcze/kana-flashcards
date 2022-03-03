@@ -15,19 +15,20 @@ body {
   font-family: "Kosugi Maru";
 }
 
-a {
-  color: #52489C;
+a, a:visited {
+  color: #c23866;
+  text-decoration: none;
 }
 
-a:visited {
-  color: #4062BB;
+a:hover {
+  text-decoration: underline;
 }
 
 button {
   background: #704E2E;
-  border: 2px solid #fff;
+  border: 2px solid #FFFFFF;
   padding: 6px 12px;
   border-radius: 4px;
-  color: #fff;
+  color: #FFFFFF;
   cursor: pointer;
 }

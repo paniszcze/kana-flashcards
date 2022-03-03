@@ -19,17 +19,14 @@ svg circle
 }
 
 .red-circle {
-  stroke-dashoffset: 44px;
   stroke: #c23866;
 }
 
 .yellow-circle {
-  stroke-dashoffset: 88px;
   stroke: #FED766;
 }
 
 .green-circle {
-  /* stroke-dashoffset: 156px; */
   stroke: #8FB339;
 }
 
@@ -53,6 +50,58 @@ svg circle
   border-radius: 50%;
   font-weight: 700;
   font-size: 2em;
+}
+
+/* HOVER STATBOX */
+
+.statbox {
+  position: relative;
+  display: inline-block;
+}
+
+.statbox .statbox-text {
+  visibility: hidden;
+  width: 100px;
+  background-color: #B09E99;
+  font-size: 14px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 10px 6px;
+  border-radius: 6px;
+  top: 110%;
+  left: 50%;
+  margin-left: -56px;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.statbox:hover .statbox-text {
+  visibility: visible;
+}
+
+.statbox .statbox-text::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #B09E99 transparent;
+}
+
+.statbox-text .redtext {
+  color: #c23866;
+}
+
+.statbox-text .yellowtext {
+  color: #FED766;
+}
+
+.statbox-text .greentext {
+  color: #61850e;
 }
 
 /* ANSWER BUTTONS */

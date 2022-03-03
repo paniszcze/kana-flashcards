@@ -59,11 +59,17 @@ export default function Counter({ changeCard }) {
           </circle>
         </svg>
         <div className="number">
-            {count}
+          <div className="statbox">{count}
+            <div className="statbox-text">
+              <div className="redtext">{answers[0]}</div>
+              <div className="yellowtext">{answers[1]}</div>
+              <div className="greentext">{answers[2]}</div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="assessment">
-        <p>{answers[0]} {answers[1]} {answers[2]}</p>
+        
         <button className="red" onClick={() => handleAnswer("red")}>Nope</button>
         <button className="yellow" onClick={() => handleAnswer("yellow")}>Kinda</button>
         <button className="green" onClick={() => handleAnswer("green")}>Yep</button>
