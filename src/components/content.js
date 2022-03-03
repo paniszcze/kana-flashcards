@@ -26,10 +26,18 @@ export default function Content() {
   }
 
   const changeCard = () => {
+    let newCard = chooseRandomCard(deck);
+
     if (flipped) {
+      setCard(prevCard => {return {
+        front: newCard.front,
+        back: prevCard.back
+      }});
       flipFlashcard();
+      setTimeout(() => setCard(newCard), 200);
+    } else {
+      setCard(newCard);
     }
-    setCard(chooseRandomCard(deck));
   }
 
   return (
