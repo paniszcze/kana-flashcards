@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import '../styles/counter.css';
 
-export default function Counter() {
+export default function Counter({ changeCard }) {
   const [limit, setLimit] = useState(200);
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
@@ -32,6 +32,8 @@ export default function Counter() {
 
         return newAnswers;
       });
+
+      changeCard();
     }
   }
 

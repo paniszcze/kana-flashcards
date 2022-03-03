@@ -14,6 +14,7 @@ svg circle
   stroke-width: 10;
   stroke-linecap: round;
   transform: translate(5px, 145px) rotate(-90deg);
+  transition: stroke-dashoffset 0.5s ease 0s;
   stroke-dasharray: 440px 440px;
 }
 

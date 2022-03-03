@@ -8,32 +8,35 @@ import Counter from './counter.js';
 
 import '../styles/content.css';
 
+const deck = [...hiragana, ...katakana].map(item => {
+  return {front: item.kana, back: item.romaji};
+});
+
 export default function Content() {
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState({front: "let's", back: "begin!"});
-
+  
   const flipFlashcard = () => {
-    if (flipped) {
-      let randomCard = chooseRandomCard(deck);
-      setCard(randomCard);
-    }
-    setFlipped(!flipped);
+    setFlipped(prevFlipped => !prevFlipped);
   };
-
-  const deck = [...hiragana, ...katakana].map(item => {
-    return {front: item.kana, back: item.romaji};
-  });
 
   const chooseRandomCard = (deck) => {
     let randomIndex = Math.floor(Math.random() * deck.length);
     return deck[randomIndex];
   }
 
+  const changeCard = () => {
+    if (flipped) {
+      flipFlashcard();
+    }
+    setCard(chooseRandomCard(deck));
+  }
+
   return (
     <div className="container">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
       <div className="dashboard">
-        <Counter />
+        <Counter changeCard={changeCard} />
       </div>
     </div>
   )
