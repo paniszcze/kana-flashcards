@@ -4,11 +4,65 @@
 }
 
 .yellow:hover {
-  background: #F3DFA2;
+  background: #FED766;
   color: #fff;
 }
 
 .green:hover {
   background: #8FB339;
   color: #fff;
+}
+
+svg {
+  width: 150px;
+  height: 150px;
+}
+
+svg circle
+{
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #CFCFCD;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: translate(5px, 145px) rotate(-90deg);
+  stroke-dasharray: 440px 440px;
+}
+
+.red-circle {
+  stroke-dashoffset: 44px;
+  stroke: #c23866;
+}
+
+.yellow-circle {
+  stroke-dashoffset: 88px;
+  stroke: #FED766;
+}
+
+.green-circle {
+  stroke-dashoffset: 156px;
+  stroke: #8FB339;
+}
+
+.percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: none;
+}
+
+.percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 2em;
 }
