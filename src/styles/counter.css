@@ -68,7 +68,7 @@ svg circle
   color: #FFFFFF;
   padding: 10px 6px;
   border-radius: 6px;
-  top: 110%;
+  bottom: 140%;
   left: 50%;
   margin-left: -56px;
   position: absolute;
@@ -84,12 +84,12 @@ svg circle
 .statbox .statbox-text::after {
   content: " ";
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #B09E99 transparent;
+  border-color: #B09E99 transparent transparent transparent;
 }
 
 .statbox-text .redtext {

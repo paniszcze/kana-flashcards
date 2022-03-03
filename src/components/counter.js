@@ -9,7 +9,7 @@ export default function Counter({ changeCard }) {
 
   const handleAnswer = (answer) => {
     if (count < limit) {
-      setAnswers (prevAnswers => {
+      setAnswers(prevAnswers => {
         let newAnswers = [...prevAnswers];
 
         switch (answer) {
@@ -26,13 +26,11 @@ export default function Counter({ changeCard }) {
             return prevAnswers;
         }
 
-        setCount (() => {
-          return newAnswers.reduce((sum, a) => sum + a, 0);
-        });
+        setCount(prevCount => prevCount + 1);
 
         return newAnswers;
       });
-
+      
       changeCard();
     }
   }
@@ -69,7 +67,6 @@ export default function Counter({ changeCard }) {
         </div>
       </div>
       <div className="assessment">
-        
         <button className="red" onClick={() => handleAnswer("red")}>Nope</button>
         <button className="yellow" onClick={() => handleAnswer("yellow")}>Kinda</button>
         <button className="green" onClick={() => handleAnswer("green")}>Yep</button>
