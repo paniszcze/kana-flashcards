@@ -1,17 +1,4 @@
-.red:hover {
-  background: #c23866;
-  color: #fff;
-}
-
-.yellow:hover {
-  background: #FED766;
-  color: #fff;
-}
-
-.green:hover {
-  background: #8FB339;
-  color: #fff;
-}
+/* CIRCULAR COUNTER */
 
 svg {
   width: 150px;
@@ -65,4 +52,21 @@ svg circle
   border-radius: 50%;
   font-weight: 700;
   font-size: 2em;
+}
+
+/* ANSWER BUTTONS */
+
+.red:hover {
+  background: #c23866;
+  color: #fff;
+}
+
+.yellow:hover {
+  background: #FED766;
+  color: #fff;
+}
+
+.green:hover {
+  background: #8FB339;
+  color: #fff;
 }
