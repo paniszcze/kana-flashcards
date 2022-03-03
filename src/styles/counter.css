@@ -28,7 +28,7 @@ svg circle
 }
 
 .green-circle {
-  stroke-dashoffset: 156px;
+  /* stroke-dashoffset: 156px; */
   stroke: #8FB339;
 }
 
