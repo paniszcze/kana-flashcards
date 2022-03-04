@@ -29,5 +29,17 @@
 
 nav {
   display: flex;
-  gap: 0.3em;
+  gap: 4px;
+}
+
+nav button {
+  background: transparent;
+  font-size: 14px;
+  color: #C23866;
+}
+
+nav button:hover {
+  color: #FEE9E1;
+  background-color: #C23866;
+  border-radius: 4px;
 }

@@ -1,0 +1,14 @@
+.Settings {
+  padding-bottom: 20px;
+}
+
+.Settings label {
+  font-size: 12px;
+  padding-left: 6px;
+  line-height: 1.8em;;
+}
+
+.choice {
+  text-align: left;
+  padding-left: 20px;
+}

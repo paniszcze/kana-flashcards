@@ -18,10 +18,10 @@
 .modal p {
   text-align: justify;
   font-size: 14px;
-  padding: 0 0 1em;
+  line-height: 1.8em;
 }
 
-span {
+.emphasis {
   font-weight: bold;
   color: #C23866;
 }

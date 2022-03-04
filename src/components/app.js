@@ -23,8 +23,8 @@ export default function App() {
         <Modal>
           <Settings />
           <div className="button-container">
-            <button>Save</button>
-            <button onClick={() => setShowSettings(false)}>Close</button>
+            <button className="green">Save</button>
+            <button className="red" onClick={() => setShowSettings(false)}>Close</button>
           </div>
         </Modal>
       )}
@@ -32,7 +32,7 @@ export default function App() {
       {showInfo && (
         <Modal>
           <Info />
-          <button onClick={() => setShowInfo(false)}>Close</button>
+          <button className="red" onClick={() => setShowInfo(false)}>Close</button>
         </Modal>
       )}
     </div>

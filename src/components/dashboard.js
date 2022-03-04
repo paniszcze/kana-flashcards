@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
+import Modal from './modal';
+import Results from './results';
+
 import '../styles/dashboard.css';
 
 export default function Dashboard({ changeCard }) {
-  const [limit, setLimit] = useState(100);
+  const [limit, setLimit] = useState(50);
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
+  const [showResults, setShowResults] = useState(false);
 
   const handleAnswer = (answer) => {
     if (count < limit) {
@@ -32,6 +36,8 @@ export default function Dashboard({ changeCard }) {
       });
       
       changeCard();
+    } else {
+      setShowResults(true);
     }
   }
 
@@ -71,6 +77,13 @@ export default function Dashboard({ changeCard }) {
         <button className="yellow" onClick={() => handleAnswer("yellow")}>Kinda</button>
         <button className="green" onClick={() => handleAnswer("green")}>Yep</button>
       </div>
+
+      {showResults && (
+      <Modal>
+        <Results answers={answers} limit={limit} />
+        <button onClick={() => setShowResults(false)}>Close</button>
+      </Modal>
+    )}
     </div>
   );
 }
