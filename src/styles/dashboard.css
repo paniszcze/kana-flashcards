@@ -1,13 +1,18 @@
 .Dashboard {
   width: 100%;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background: #FFFFFF;
-  border-radius: 8px;
+  gap: 30px;
+}
+
+.assessment {
+  display: flex;
+  gap: 0.3em;
 }
 
 /* CIRCULAR COUNTER */

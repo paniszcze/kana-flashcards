@@ -2,12 +2,8 @@ import '../styles/settings.css';
 
 export default function Settings() {
   return (
-    <form className="settings">
-      <label>
-        <span>...</span>
-        <input type="text" />
-      </label>
-      <button>Save</button>
-    </form>
+    <div className="Settings">
+      <h3>Settings</h3>
+    </div>
   )
 }

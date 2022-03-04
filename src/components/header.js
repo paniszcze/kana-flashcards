@@ -1,6 +1,6 @@
 import '../styles/header.css';
 
-export default function Header() {
+export default function Header({ setShowSettings, setShowInfo }) {
   return (
     <div className="Header">
       <div className="title-container">
@@ -8,7 +8,9 @@ export default function Header() {
         <h2 className="subtitle">Learn Japanese kana with customisable flashcard deck!</h2>
       </div>
       <nav>
-        <a href="./">Language</a> | <a href="./">Settings</a> | <a href="./">Info</a>
+        <button>Language</button>
+        <button onClick={() => setShowSettings(true)}>Settings</button>
+        <button onClick={() => setShowInfo(true)}>Info</button>
       </nav>
     </div>
   )

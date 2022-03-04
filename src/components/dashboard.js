@@ -39,7 +39,7 @@ export default function Dashboard({ changeCard }) {
     <div className="Dashboard">
       <div className="counter">
         <svg>
-          <circle className="base-circle" cx="70" cy="70" r="70"></circle>
+          <circle cx="70" cy="70" r="70"></circle>
           <circle className="red-circle" 
             style={{strokeDashoffset: `${count ? 440 - Math.floor(answers[0] / limit * 440)
               - Math.floor(answers[1] / limit * 440) - Math.floor(answers[2] / limit * 440) : 440}px`}}

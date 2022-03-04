@@ -26,3 +26,8 @@
   font-size: 1em;
   font-weight: normal;
 }
+
+nav {
+  display: flex;
+  gap: 0.3em;
+}
