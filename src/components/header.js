@@ -2,7 +2,7 @@ import '../styles/header.css';
 
 export default function Header() {
   return (
-    <div className="navbar">
+    <div className="Header">
       <div className="title-container">
         <h1 className="title">Kana Flashcards</h1>
         <h2 className="subtitle">Learn Japanese kana with customisable flashcard deck!</h2>

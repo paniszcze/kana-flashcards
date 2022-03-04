@@ -4,7 +4,7 @@ import { hiragana } from '../data/hiragana';
 import { katakana } from '../data/katakana';
 
 import Flashcard from './flashcard.js';
-import Counter from './counter.js';
+import Dashboard from './dashboard.js';
 
 import '../styles/content.css';
 
@@ -41,11 +41,9 @@ export default function Content() {
   }
 
   return (
-    <div className="container">
+    <div className="Content">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
-      <div className="dashboard">
-        <Counter changeCard={changeCard} />
-      </div>
+      <Dashboard changeCard={changeCard} />
     </div>
   )
 }

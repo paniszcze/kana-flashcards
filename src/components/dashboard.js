@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import '../styles/counter.css';
+import '../styles/dashboard.css';
 
-export default function Counter({ changeCard }) {
-  const [limit, setLimit] = useState(200);
+export default function Dashboard({ changeCard }) {
+  const [limit, setLimit] = useState(100);
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
 
@@ -36,8 +36,8 @@ export default function Counter({ changeCard }) {
   }
 
   return (
-    <>
-      <div className="count">
+    <div className="Dashboard">
+      <div className="counter">
         <svg>
           <circle className="base-circle" cx="70" cy="70" r="70"></circle>
           <circle className="red-circle" 
@@ -71,6 +71,6 @@ export default function Counter({ changeCard }) {
         <button className="yellow" onClick={() => handleAnswer("yellow")}>Kinda</button>
         <button className="green" onClick={() => handleAnswer("green")}>Yep</button>
       </div>
-    </>
+    </div>
   );
 }

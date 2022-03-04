@@ -3,8 +3,6 @@
 
 body {
   font-family: Nunito;
-  max-width: 860px;
-  margin: 20px auto;
   font-size: 1em;
   text-align: center;
   background: #FAD4C0;
@@ -16,12 +14,14 @@ body {
 }
 
 a, a:visited {
-  color: #c23866;
+  color: #C23866;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #FEE9E1;
+  background-color: #C23866;
+  border-radius: 3px;
 }
 
 button {
