@@ -4,10 +4,12 @@
   align-items: center;
   padding: 20px 40px;
   margin-bottom: 20px;
-  background: #FEE9E1;
+  background: #fee9e1;
   border-radius: 8px;
-  color: #2D2D34;
+  color: #2d2d34;
 }
+
+/* PAGE TITLE */
 
 .title-container {
   text-align: left;
@@ -27,6 +29,8 @@
   font-weight: normal;
 }
 
+/* NAVIGATION BUTTONS */
+
 nav {
   display: flex;
   gap: 4px;
@@ -35,11 +39,38 @@ nav {
 nav button {
   background: transparent;
   font-size: 14px;
-  color: #C23866;
+  color: #c23866;
 }
 
 nav button:hover {
-  color: #FEE9E1;
-  background-color: #C23866;
+  color: #fee9e1;
+  background-color: #c23866;
   border-radius: 4px;
+}
+
+/* LANGUAGE DROPDOWN */
+
+.show {
+  background-color: #ffffff;
+  border-radius: 6px 6px 0 0;
+}
+
+.show .main-language {
+  color: #fee9e1;
+  background-color: #c23866;
+  border-radius: 4px;
+}
+
+.dropdown-content {
+  background-color: #ffffff;
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content button:hover {
+  background: #b09e99;
+  color: #ffffff;
 }
