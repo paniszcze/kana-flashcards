@@ -24,6 +24,7 @@ export default function App() {
           <Settings />
           <div className="button-container">
             <button className="green">Save</button>
+            <button className="yellow">Restart</button>
             <button className="red" onClick={() => setShowSettings(false)}>Close</button>
           </div>
         </Modal>
