@@ -11,6 +11,11 @@ body {
   color: #2D2D34;
 }
 
+#root {
+  height: 100vh;
+  display: flex;
+}
+
 .japanese {
   font-family: "Kosugi Maru";
 }

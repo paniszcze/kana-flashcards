@@ -12,7 +12,6 @@ Single Page Application built with React.
 
 - make the first flashcard to be randomly generated instead of showing the welcome message ("let's – begin")
 - trigger results modal on reaching the flashcards limit
-- align the App vertically
 - display the count numbers in results modal outside of the count bar if they don't fit in
 - enable quiting modals and dropdowns when clicking on the background
 - refactor calculation of circular counter bars (abstract away into a function)
