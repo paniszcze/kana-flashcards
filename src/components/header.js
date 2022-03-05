@@ -53,8 +53,22 @@ export default function Header({ setShowSettings, setShowInfo }) {
             </div>
           )}
         </div>
-        <button onClick={() => setShowSettings(true)}>Settings</button>
-        <button onClick={() => setShowInfo(true)}>Info</button>
+        <button
+          onClick={() => {
+            setShowSettings(true);
+            setShowLanguage(false);
+          }}
+        >
+          Settings
+        </button>
+        <button
+          onClick={() => {
+            setShowInfo(true);
+            setShowLanguage(false);
+          }}
+        >
+          Info
+        </button>
       </nav>
     </header>
   );

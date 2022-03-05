@@ -2,13 +2,25 @@
   margin-bottom: 1.5em;
 }
 
-.Settings label {
-  font-size: 12px;
-  padding-left: 6px;
-  line-height: 1.8em;;
-}
-
 .choice {
   text-align: left;
   padding-left: 20px;
+}
+
+.choice label {
+  font-size: 12px;
+  padding-left: 6px;
+}
+
+.range p {
+  display: flex;
+  gap: 6px;
+}
+
+.range input {
+  text-align: center;
+}
+
+.note {
+  font-size: 12px;
 }
