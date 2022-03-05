@@ -41,9 +41,9 @@ export default function Content() {
   }
 
   return (
-    <div className="Content">
+    <main className="Content">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
       <Dashboard changeCard={changeCard} />
-    </div>
+    </main>
   )
 }
