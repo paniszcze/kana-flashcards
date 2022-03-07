@@ -15,9 +15,9 @@ Single Page Application built with React.
 - display the count numbers in results modal outside of the count bar if they don't fit in
 - enable quiting modals and dropdowns when clicking on the background
 - fix language toggle button (background styling and set showLanguage to false when accessing Results modal)
-- refactor calculation of circular counter bars (abstract away into a function)
 - centralise application state with Redux
 - hook settings options with application's state (requires dictionary update)
+- move constants into separate file (countbar's circumference, etc.)
 - add Polish language support
 - add keyboard navigation
 - create a queue of flashcards on each run and track the answers to show the least known kana in the results

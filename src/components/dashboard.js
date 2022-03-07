@@ -5,6 +5,11 @@ import Results from './results';
 
 import '../styles/dashboard.css';
 
+const getDashoffset = (array, start, limit) => {
+  let sum = array.slice(start).reduce((a, b) => a + b, 0);
+  return 440 - Math.floor(sum / limit * 440);
+};
+
 export default function Dashboard({ changeCard }) {
   const [limit, setLimit] = useState(50);
   const [count, setCount] = useState(0);
@@ -47,18 +52,16 @@ export default function Dashboard({ changeCard }) {
         <svg>
           <circle cx="70" cy="70" r="70"></circle>
           <circle className="red-circle" 
-            style={{strokeDashoffset: `${count ? 440 - Math.floor(answers[0] / limit * 440)
-              - Math.floor(answers[1] / limit * 440) - Math.floor(answers[2] / limit * 440) : 440}px`}}
+            style={{strokeDashoffset: `${count ? getDashoffset(answers, 0, limit) : 440}px`}}
             cx="70" cy="70" r="70">
           </circle>
           <circle className="yellow-circle" 
-            style={{strokeDashoffset: `${count ? 440 - Math.floor(answers[1] / limit * 440) 
-              - Math.floor(answers[2] / limit * 440) : 440}px`}}
+            style={{strokeDashoffset: `${count ? getDashoffset(answers, 1, limit) : 440}px`}}
             cx="70" cy="70" r="70">
           </circle>
           <circle
             className="green-circle"
-            style={{strokeDashoffset: `${count ? 440 - Math.floor(answers[2] / limit * 440) : 440}px`}}
+            style={{strokeDashoffset: `${count ? getDashoffset(answers, 2, limit) : 440}px`}}
             cx="70" cy="70" r="70">
           </circle>
         </svg>
