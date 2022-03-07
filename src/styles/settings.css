@@ -19,6 +19,7 @@
 
 .range input {
   text-align: center;
+  max-width: 60px;
 }
 
 .note {
