@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kana-flashcards/static/css/main.0f91f018.css",
+    "main.js": "/kana-flashcards/static/js/main.4bc334e0.js",
+    "index.html": "/kana-flashcards/index.html",
+    "main.0f91f018.css.map": "/kana-flashcards/static/css/main.0f91f018.css.map",
+    "main.4bc334e0.js.map": "/kana-flashcards/static/js/main.4bc334e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f91f018.css",
+    "static/js/main.4bc334e0.js"
+  ]
+}
