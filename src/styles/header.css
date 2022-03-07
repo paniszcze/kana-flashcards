@@ -43,6 +43,7 @@
 @media (max-width: 600px) {
   .title-container {
     align-items: center;
+    text-align: center;
   }
 }
 
