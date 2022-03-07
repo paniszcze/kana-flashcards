@@ -5,3 +5,10 @@
   align-items: stretch;
   gap: 20px;
 }
+
+@media (max-width: 670px) {
+  .Content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

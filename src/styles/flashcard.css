@@ -19,7 +19,8 @@
   position: relative;
 }
 
-.front, .back {
+.front,
+.back {
   backface-visibility: hidden;
   transition: 0.4s;
   transform-style: preserve-3d;
@@ -41,11 +42,11 @@
 
 .front {
   z-index: 2;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .back {
   transform: rotateY(-180deg);
-  background: #704E2E;
-  color: #FAD4C0;
+  background: #704e2e;
+  color: #fad4c0;
 }

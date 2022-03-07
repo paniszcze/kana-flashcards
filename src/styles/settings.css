@@ -8,7 +8,7 @@
 }
 
 .choice label {
-  font-size: 12px;
+  font-size: 0.8em;
   padding-left: 6px;
 }
 
@@ -22,5 +22,5 @@
 }
 
 .note {
-  font-size: 12px;
+  font-size: 0.8em;
 }

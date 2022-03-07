@@ -1,4 +1,13 @@
 .App {
   width: 860px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 670px) {
+  .App {
+    gap: 10px;
+  }
 }

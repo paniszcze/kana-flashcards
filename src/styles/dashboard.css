@@ -1,7 +1,7 @@
 .Dashboard {
   width: 100%;
   padding: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,13 @@
   gap: 0.3em;
 }
 
+@media (max-width: 670px) {
+  .Dashboard {
+    padding: 30px 0;
+    flex-direction: row;
+  }
+}
+
 /* CIRCULAR COUNTER */
 
 svg {
@@ -22,12 +29,11 @@ svg {
   height: 150px;
 }
 
-svg circle
-{
+svg circle {
   width: 100%;
   height: 100%;
   fill: none;
-  stroke: #CFCFCD;
+  stroke: #cfcfcd;
   stroke-width: 10;
   stroke-linecap: round;
   transform: translate(5px, 145px) rotate(-90deg);
@@ -36,15 +42,15 @@ svg circle
 }
 
 .red-circle {
-  stroke: #C23866;
+  stroke: #c23866;
 }
 
 .yellow-circle {
-  stroke: #FED766;
+  stroke: #fed766;
 }
 
 .green-circle {
-  stroke: #8FB339;
+  stroke: #8fb339;
 }
 
 .counter {
@@ -79,10 +85,10 @@ svg circle
 .statbox .statbox-text {
   visibility: hidden;
   width: 100px;
-  background-color: #B09E99;
+  background-color: #b09e99;
   font-size: 14px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px 6px;
   border-radius: 6px;
   bottom: 140%;
@@ -106,7 +112,7 @@ svg circle
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #B09E99 transparent transparent transparent;
+  border-color: #b09e99 transparent transparent transparent;
 }
 
 .statbox-text .redtext {
@@ -114,7 +120,7 @@ svg circle
 }
 
 .statbox-text .yellowtext {
-  color: #FED766;
+  color: #fed766;
 }
 
 .statbox-text .greentext {
@@ -129,11 +135,11 @@ svg circle
 }
 
 .yellow:hover {
-  background: #FED766;
+  background: #fed766;
   color: #fff;
 }
 
 .green:hover {
-  background: #8FB339;
+  background: #8fb339;
   color: #fff;
 }

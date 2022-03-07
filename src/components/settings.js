@@ -6,11 +6,11 @@ export default function Settings() {
       <h3>Settings</h3>
       <p>Choose syllabary sets to practice:</p>
       <div className="choice">
-        <input type="checkbox" id="hiragana" name="hitagana" />
+        <input type="checkbox" id="hiragana" name="hitagana" defaultChecked />
         <label htmlFor="hiragana">Hiragana</label>
       </div>
       <div className="choice">
-        <input type="checkbox" id="katakana" name="katakana" />
+        <input type="checkbox" id="katakana" name="katakana" defaultChecked />
         <label htmlFor="katakana">Katakana</label>
       </div>
       <p>Include:</p>
