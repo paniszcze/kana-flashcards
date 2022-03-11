@@ -43,7 +43,7 @@ export default function Settings() {
         <p>
           <label htmlFor="cardsNum">Number of flashcards in deck:</label>
           <input type="number" id="cardsNum" name="cardsNum" min="1" max="200" placeholder="1" />
-          <div className="note">(max. <strong>200</strong>)</div>
+          <span className="note">(max. <strong>200</strong>)</span>
         </p>
       </div>
     </div>
