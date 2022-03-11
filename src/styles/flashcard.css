@@ -1,8 +1,44 @@
 .Flashcard {
-  min-width: 460px;
-  min-height: 320px;
-  perspective: 1000;
-  display: inline-block;
+  flex: 3;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
+  font-weight: bold;
+  backface-visibility: hidden;
+  transition: 0.4s;
+  transform-style: preserve-3d;
+}
+
+.front {
+  transform: rotateY(0deg);
+  background: #ffffff;
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(-180deg);
+  background: #704e2e;
+  color: #fad4c0;
 }
 
 .flipped .back {
@@ -11,42 +47,4 @@
 
 .flipped .front {
   transform: rotateY(180deg);
-}
-
-.flipper {
-  transition: 0.4s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.front,
-.back {
-  backface-visibility: hidden;
-  transition: 0.4s;
-  transform-style: preserve-3d;
-  transform: rotateY(0deg);
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 320px;
-  border-radius: 6px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 6em;
-  font-weight: bold;
-}
-
-.front {
-  z-index: 2;
-  background: #ffffff;
-}
-
-.back {
-  transform: rotateY(-180deg);
-  background: #704e2e;
-  color: #fad4c0;
 }
