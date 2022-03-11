@@ -3,4 +3,11 @@
   background: #b09e99;
   border-radius: 8px;
   color: #fee9e1;
+  flex: 0;
+}
+
+@media (max-width: 700px) {
+  .Footer {
+    border-radius: 8px 8px 0 0;
+  }
 }
