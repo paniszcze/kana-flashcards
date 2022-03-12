@@ -83,11 +83,7 @@ export default function Dashboard({ changeCard }) {
 
       {showResults && (
       <Modal>
-        <Results answers={answers} limit={limit} />
-        <div className="button-container">
-          <button className="yellow">Restart</button>
-          <button className="red" onClick={() => setShowResults(false)}>Close</button>
-        </div>
+        <Results answers={answers} limit={limit} setShowResults={setShowResults} />
       </Modal>
     )}
     </div>

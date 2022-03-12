@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+import Modal from "./modal";
+import Settings from "./settings";
+import Info from "./info";
+
 import "../styles/header.css";
 
 const languages = [
@@ -13,9 +17,21 @@ const languages = [
   },
 ];
 
-export default function Header({ setShowSettings, setShowInfo }) {
+export default function Header() {
   const [language, setLanguage] = useState(languages[0]);
   const [showLanguage, setShowLanguage] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
+  const [settings, setSettings] = useState({
+    hiragana: true,
+    katakana: true,
+    diacritics: false,
+    digraphs: false,
+    wi_we: false,
+    extended: false,
+    limit: 50,
+  });
 
   const toggleLanguageDropdown = () => {
     setShowLanguage((prevShowLanguage) => !prevShowLanguage);
@@ -70,6 +86,22 @@ export default function Header({ setShowSettings, setShowInfo }) {
           Info
         </button>
       </nav>
+
+      {showSettings && (
+        <Modal>
+          <Settings
+            settings={settings}
+            setSettings={setSettings}
+            setShowSettings={setShowSettings}
+          />
+        </Modal>
+      )}
+
+      {showInfo && (
+        <Modal>
+          <Info setShowInfo={setShowInfo} />
+        </Modal>
+      )}
     </header>
   );
 }
