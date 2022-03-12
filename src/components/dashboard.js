@@ -10,8 +10,7 @@ const getDashoffset = (array, start, limit) => {
   return 440 - Math.floor(sum / limit * 440);
 };
 
-export default function Dashboard({ changeCard }) {
-  const [limit, setLimit] = useState(50);
+export default function Dashboard({ changeCard, limit }) {
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
   const [showResults, setShowResults] = useState(false);

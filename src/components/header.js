@@ -17,21 +17,11 @@ const languages = [
   },
 ];
 
-export default function Header() {
+export default function Header({ settings, setSettings }) {
   const [language, setLanguage] = useState(languages[0]);
   const [showLanguage, setShowLanguage] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-
-  const [settings, setSettings] = useState({
-    hiragana: true,
-    katakana: true,
-    diacritics: false,
-    digraphs: false,
-    wi_we: false,
-    extended: false,
-    limit: 50,
-  });
 
   const toggleLanguageDropdown = () => {
     setShowLanguage((prevShowLanguage) => !prevShowLanguage);

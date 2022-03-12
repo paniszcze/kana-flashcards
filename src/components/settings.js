@@ -6,19 +6,23 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
   const [currSettings, setCurrSettings] = useState(settings);
 
   const handleCheckbox = (e) => {
-    setSettings({ ...settings, [e.target.name]: e.target.checked });
+    setCurrSettings({ ...currSettings, [e.target.name]: e.target.checked });
   };
 
   const handleInput = (e) => {
-    setSettings({ ...settings, [e.target.name]: e.target.value });
+    setCurrSettings({ ...currSettings, [e.target.name]: e.target.value });
   };
+
+  const validateSettings = () => true; // placeholder
 
   const handleButton = (action) => {
     switch (action) {
-      case "cancel":
-      case "restart":
-        setSettings(currSettings); // falls through
       case "save":
+        if (validateSettings()) {
+          setSettings(currSettings);
+        } // falls through
+      case "restart":
+      case "cancel":
       default:
         setShowSettings(false);
     }
@@ -33,7 +37,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="hiragana"
           name="hiragana"
-          checked={settings["hiragana"]}
+          checked={currSettings["hiragana"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="hiragana">Hiragana</label>
@@ -43,7 +47,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="katakana"
           name="katakana"
-          checked={settings["katakana"]}
+          checked={currSettings["katakana"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="katakana">Katakana</label>
@@ -54,7 +58,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="diacritics"
           name="diacritics"
-          checked={settings["diacritics"]}
+          checked={currSettings["diacritics"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="diacritics">
@@ -66,7 +70,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="digraphs"
           name="digraphs"
-          checked={settings["digraphs"]}
+          checked={currSettings["digraphs"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="digraphs">
@@ -78,7 +82,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="wi_we"
           name="wi_we"
-          checked={settings["wi_we"]}
+          checked={currSettings["wi_we"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="wi_we">
@@ -91,7 +95,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="extended"
           name="extended"
-          checked={settings["extended"]}
+          checked={currSettings["extended"]}
           onChange={handleCheckbox}
         />
         <label htmlFor="extended">
@@ -107,8 +111,8 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
             name="limit"
             min="1"
             max="200"
-            placeholder={settings["limit"]}
-            value={settings["limit"]}
+            placeholder={currSettings["limit"]}
+            value={currSettings["limit"]}
             onChange={handleInput}
           />
           <span className="note">

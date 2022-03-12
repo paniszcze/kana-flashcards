@@ -12,7 +12,7 @@ const deck = [...hiragana, ...katakana].map(item => {
   return {front: item.kana, back: item.romaji};
 });
 
-export default function Content() {
+export default function Content({ settings }) {
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState({front: "let's", back: "begin!"});
   
@@ -43,7 +43,7 @@ export default function Content() {
   return (
     <main className="Content">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
-      <Dashboard changeCard={changeCard} />
+      <Dashboard changeCard={changeCard} limit={settings.limit} />
     </main>
   )
 }
