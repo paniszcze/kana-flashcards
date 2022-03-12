@@ -8,7 +8,7 @@ const languages = [
     abbreviation: "EN",
   },
   {
-    language: "Polish",
+    language: "Polski",
     abbreviation: "PL",
   },
 ];
@@ -35,7 +35,7 @@ export default function Header({ setShowSettings, setShowInfo }) {
         </h2>
       </div>
       <nav>
-        <div className={`dropdown${showLanguage ? " show" : ""}`}>
+        <div className={`dropdown${showLanguage ? " show-dropdown" : ""}`}>
           <button className="main-language" onClick={toggleLanguageDropdown}>
             {language.abbreviation}
           </button>

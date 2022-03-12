@@ -18,8 +18,9 @@
 
 @media (max-width: 600px) {
   .Header {
+    padding: 25px 40px;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 }
 
@@ -62,7 +63,7 @@
 
 nav {
   display: flex;
-  gap: 4px;
+  gap: 10px;
 }
 
 nav button {
@@ -79,18 +80,23 @@ nav button:hover {
 
 /* LANGUAGE DROPDOWN */
 
-.show {
+.dropdown button {
+  min-width: 46px;
+}
+
+.show-dropdown {
   background-color: #ffffff;
   border-radius: 6px 6px 0 0;
 }
 
-.show .main-language {
+.show-dropdown .main-language {
   color: #fee9e1;
   background-color: #c23866;
   border-radius: 4px;
 }
 
 .dropdown-content {
+  min-width: 46px;
   background-color: #ffffff;
   border-radius: 0 0 6px 6px;
   position: absolute;

@@ -6,7 +6,26 @@
   height: 100%;
   background: rgba(176, 158, 153, 0.76);
   display: flex;
+  animation: fade-in 0.3s ease;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* .fade-in {
+  transition: opacity 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3 ease;
+} */
 
 .modal {
   width: 420px;
