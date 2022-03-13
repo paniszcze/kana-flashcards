@@ -1,552 +1,564 @@
-export const hiragana = [
+export const basic = [
   {
-      id: "a",
-      kana: "あ",
-      romaji: "a"
+    id: "a",
+    kana: "あ",
+    romaji: "a",
   },
   {
-      id: "i",
-      kana: "い",
-      romaji: "i"
+    id: "i",
+    kana: "い",
+    romaji: "i",
   },
   {
-      id: "u",
-      kana: "う",
-      romaji: "u"
+    id: "u",
+    kana: "う",
+    romaji: "u",
   },
   {
-      id: "e",
-      kana: "え",
-      romaji: "e"
+    id: "e",
+    kana: "え",
+    romaji: "e",
   },
   {
-      id: "o",
-      kana: "お",
-      romaji: "o"
+    id: "o",
+    kana: "お",
+    romaji: "o",
   },
   {
-      id: "ka",
-      kana: "か",
-      romaji: "ka"
+    id: "ka",
+    kana: "か",
+    romaji: "ka",
   },
   {
-      id: "ki",
-      kana: "き",
-      romaji: "ki"
+    id: "ki",
+    kana: "き",
+    romaji: "ki",
   },
   {
-      id: "ku",
-      kana: "く",
-      romaji: "ku"
+    id: "ku",
+    kana: "く",
+    romaji: "ku",
   },
   {
-      id: "ke",
-      kana: "け",
-      romaji: "ke"
+    id: "ke",
+    kana: "け",
+    romaji: "ke",
   },
   {
-      id: "ko",
-      kana: "こ",
-      romaji: "ko"
+    id: "ko",
+    kana: "こ",
+    romaji: "ko",
   },
   {
-      id: "sa",
-      kana: "さ",
-      romaji: "sa"
+    id: "sa",
+    kana: "さ",
+    romaji: "sa",
   },
   {
-      id: "si",
-      kana: "し",
-      romaji: "shi"
+    id: "si",
+    kana: "し",
+    romaji: "shi",
   },
   {
-      id: "su",
-      kana: "す",
-      romaji: "su"
+    id: "su",
+    kana: "す",
+    romaji: "su",
   },
   {
-      id: "se",
-      kana: "せ",
-      romaji: "se"
+    id: "se",
+    kana: "せ",
+    romaji: "se",
   },
   {
-      id: "so",
-      kana: "そ",
-      romaji: "so"
+    id: "so",
+    kana: "そ",
+    romaji: "so",
   },
   {
-      id: "ta",
-      kana: "た",
-      romaji: "ta"
+    id: "ta",
+    kana: "た",
+    romaji: "ta",
   },
   {
-      id: "ti",
-      kana: "ち",
-      romaji: "chi"
+    id: "ti",
+    kana: "ち",
+    romaji: "chi",
   },
   {
-      id: "tu",
-      kana: "つ",
-      romaji: "tsu"
+    id: "tu",
+    kana: "つ",
+    romaji: "tsu",
   },
   {
-      id: "te",
-      kana: "て",
-      romaji: "te"
+    id: "te",
+    kana: "て",
+    romaji: "te",
   },
   {
-      id: "to",
-      kana: "と",
-      romaji: "to"
+    id: "to",
+    kana: "と",
+    romaji: "to",
   },
   {
-      id: "na",
-      kana: "な",
-      romaji: "na"
+    id: "na",
+    kana: "な",
+    romaji: "na",
   },
   {
-      id: "ni",
-      kana: "に",
-      romaji: "ni"
+    id: "ni",
+    kana: "に",
+    romaji: "ni",
   },
   {
-      id: "nu",
-      kana: "ぬ",
-      romaji: "nu"
+    id: "nu",
+    kana: "ぬ",
+    romaji: "nu",
   },
   {
-      id: "ne",
-      kana: "ね",
-      romaji: "ne"
+    id: "ne",
+    kana: "ね",
+    romaji: "ne",
   },
   {
-      id: "no",
-      kana: "の",
-      romaji: "no"
+    id: "no",
+    kana: "の",
+    romaji: "no",
   },
   {
-      id: "ha",
-      kana: "は",
-      romaji: "ha"
+    id: "ha",
+    kana: "は",
+    romaji: "ha",
   },
   {
-      id: "hi",
-      kana: "ひ",
-      romaji: "hi"
+    id: "hi",
+    kana: "ひ",
+    romaji: "hi",
   },
   {
-      id: "hu",
-      kana: "ふ",
-      romaji: "fu"
+    id: "hu",
+    kana: "ふ",
+    romaji: "fu",
   },
   {
-      id: "he",
-      kana: "へ",
-      romaji: "he"
+    id: "he",
+    kana: "へ",
+    romaji: "he",
   },
   {
-      id: "ho",
-      kana: "ほ",
-      romaji: "ho"
+    id: "ho",
+    kana: "ほ",
+    romaji: "ho",
   },
   {
-      id: "ma",
-      kana: "ま",
-      romaji: "ma"
+    id: "ma",
+    kana: "ま",
+    romaji: "ma",
   },
   {
-      id: "mi",
-      kana: "み",
-      romaji: "mi"
+    id: "mi",
+    kana: "み",
+    romaji: "mi",
   },
   {
-      id: "mu",
-      kana: "む",
-      romaji: "mu"
+    id: "mu",
+    kana: "む",
+    romaji: "mu",
   },
   {
-      id: "me",
-      kana: "め",
-      romaji: "me"
+    id: "me",
+    kana: "め",
+    romaji: "me",
   },
   {
-      id: "mo",
-      kana: "も",
-      romaji: "mo"
+    id: "mo",
+    kana: "も",
+    romaji: "mo",
   },
   {
-      id: "ya",
-      kana: "や",
-      romaji: "ya"
+    id: "ya",
+    kana: "や",
+    romaji: "ya",
   },
   {
-      id: "yu",
-      kana: "ゆ",
-      romaji: "yu"
+    id: "yu",
+    kana: "ゆ",
+    romaji: "yu",
   },
   {
-      id: "yo",
-      kana: "よ",
-      romaji: "yo"
+    id: "yo",
+    kana: "よ",
+    romaji: "yo",
   },
   {
-      id: "ra",
-      kana: "ら",
-      romaji: "ra"
+    id: "ra",
+    kana: "ら",
+    romaji: "ra",
   },
   {
-      id: "ri",
-      kana: "り",
-      romaji: "ri"
+    id: "ri",
+    kana: "り",
+    romaji: "ri",
   },
   {
-      id: "ru",
-      kana: "る",
-      romaji: "ru"
+    id: "ru",
+    kana: "る",
+    romaji: "ru",
   },
   {
-      id: "re",
-      kana: "れ",
-      romaji: "re"
+    id: "re",
+    kana: "れ",
+    romaji: "re",
   },
   {
-      id: "ro",
-      kana: "ろ",
-      romaji: "ro"
+    id: "ro",
+    kana: "ろ",
+    romaji: "ro",
   },
   {
-      id: "wa",
-      kana: "わ",
-      romaji: "wa"
+    id: "wa",
+    kana: "わ",
+    romaji: "wa",
   },
   {
-      id: "wi",
-      kana: "ゐ",
-      romaji: "wi"
+    id: "wo",
+    kana: "を",
+    romaji: "wo",
   },
   {
-      id: "we",
-      kana: "ゑ",
-      romaji: "we"
+    id: "-n",
+    kana: "ん",
+    romaji: "n",
   },
+];
+
+export const diacritics = [
   {
-      id: "wo",
-      kana: "を",
-      romaji: "wo"
+    id: "ga",
+    kana: "が",
+    romaji: "ga",
   },
   {
-      id: "-n",
-      kana: "ん",
-      romaji: "n"
+    id: "gi",
+    kana: "ぎ",
+    romaji: "gi",
   },
   {
-      id: "ga",
-      kana: "が",
-      romaji: "ga"
+    id: "gu",
+    kana: "ぐ",
+    romaji: "gu",
   },
   {
-      id: "gi",
-      kana: "ぎ",
-      romaji: "gi"
+    id: "ge",
+    kana: "げ",
+    romaji: "ge",
   },
   {
-      id: "gu",
-      kana: "ぐ",
-      romaji: "gu"
+    id: "go",
+    kana: "ご",
+    romaji: "go",
   },
   {
-      id: "ge",
-      kana: "げ",
-      romaji: "ge"
+    id: "za",
+    kana: "ざ",
+    romaji: "za",
   },
   {
-      id: "go",
-      kana: "ご",
-      romaji: "go"
+    id: "zi",
+    kana: "じ",
+    romaji: "ji",
   },
   {
-      id: "za",
-      kana: "ざ",
-      romaji: "za"
+    id: "zu",
+    kana: "ず",
+    romaji: "zu",
   },
   {
-      id: "zi",
-      kana: "じ",
-      romaji: "ji"
+    id: "ze",
+    kana: "ぜ",
+    romaji: "ze",
   },
   {
-      id: "zu",
-      kana: "ず",
-      romaji: "zu"
+    id: "zo",
+    kana: "ぞ",
+    romaji: "zo",
   },
   {
-      id: "ze",
-      kana: "ぜ",
-      romaji: "ze"
+    id: "da",
+    kana: "だ",
+    romaji: "da",
   },
   {
-      id: "zo",
-      kana: "ぞ",
-      romaji: "zo"
+    id: "di",
+    kana: "ぢ",
+    romaji: "ji",
   },
   {
-      id: "da",
-      kana: "だ",
-      romaji: "da"
+    id: "du",
+    kana: "づ",
+    romaji: "zu",
   },
   {
-      id: "di",
-      kana: "ぢ",
-      romaji: "ji"
+    id: "de",
+    kana: "で",
+    romaji: "de",
   },
   {
-      id: "du",
-      kana: "づ",
-      romaji: "zu"
+    id: "do",
+    kana: "ど",
+    romaji: "do",
   },
   {
-      id: "de",
-      kana: "で",
-      romaji: "de"
+    id: "ba",
+    kana: "ば",
+    romaji: "ba",
   },
   {
-      id: "do",
-      kana: "ど",
-      romaji: "do"
+    id: "bi",
+    kana: "び",
+    romaji: "bi",
   },
   {
-      id: "ba",
-      kana: "ば",
-      romaji: "ba"
+    id: "bu",
+    kana: "ぶ",
+    romaji: "bu",
   },
   {
-      id: "bi",
-      kana: "び",
-      romaji: "bi"
+    id: "be",
+    kana: "べ",
+    romaji: "be",
   },
   {
-      id: "bu",
-      kana: "ぶ",
-      romaji: "bu"
+    id: "bo",
+    kana: "ぼ",
+    romaji: "bo",
   },
   {
-      id: "be",
-      kana: "べ",
-      romaji: "be"
+    id: "pa",
+    kana: "ぱ",
+    romaji: "pa",
   },
   {
-      id: "bo",
-      kana: "ぼ",
-      romaji: "bo"
+    id: "pi",
+    kana: "ぴ",
+    romaji: "pi",
   },
   {
-      id: "pa",
-      kana: "ぱ",
-      romaji: "pa"
+    id: "pu",
+    kana: "ぷ",
+    romaji: "pu",
   },
   {
-      id: "pi",
-      kana: "ぴ",
-      romaji: "pi"
+    id: "pe",
+    kana: "ぺ",
+    romaji: "pe",
   },
   {
-      id: "pu",
-      kana: "ぷ",
-      romaji: "pu"
+    id: "po",
+    kana: "ぽ",
+    romaji: "po",
   },
   {
-      id: "pe",
-      kana: "ぺ",
-      romaji: "pe"
+    id: "vu",
+    kana: "ゔ",
+    romaji: "vu",
   },
+];
+
+export const digraphs = [
   {
-      id: "po",
-      kana: "ぽ",
-      romaji: "po"
+    id: "kya",
+    kana: "きゃ",
+    romaji: "kya",
   },
   {
-      id: "vu",
-      kana: "ゔ",
-      romaji: "vu"
+    id: "kyu",
+    kana: "きゅ",
+    romaji: "kyu",
   },
   {
-      id: "kya",
-      kana: "きゃ",
-      romaji: "kya"
+    id: "kyo",
+    kana: "きょ",
+    romaji: "kyo",
   },
   {
-      id: "kyu",
-      kana: "きゅ",
-      romaji: "kyu"
+    id: "sya",
+    kana: "しゃ",
+    romaji: "sha",
   },
   {
-      id: "kyo",
-      kana: "きょ",
-      romaji: "kyo"
+    id: "syu",
+    kana: "しゅ",
+    romaji: "shu",
   },
   {
-      id: "sya",
-      kana: "しゃ",
-      romaji: "sha"
+    id: "syo",
+    kana: "しょ",
+    romaji: "sho",
   },
   {
-      id: "syu",
-      kana: "しゅ",
-      romaji: "shu"
+    id: "tya",
+    kana: "ちゃ",
+    romaji: "cha",
   },
   {
-      id: "syo",
-      kana: "しょ",
-      romaji: "sho"
+    id: "tyu",
+    kana: "ちゅ",
+    romaji: "chu",
   },
   {
-      id: "tya",
-      kana: "ちゃ",
-      romaji: "cha"
+    id: "tyo",
+    kana: "ちょ",
+    romaji: "cho",
   },
   {
-      id: "tyu",
-      kana: "ちゅ",
-      romaji: "chu"
+    id: "nya",
+    kana: "にゃ",
+    romaji: "nya",
   },
   {
-      id: "tyo",
-      kana: "ちょ",
-      romaji: "cho"
+    id: "nyu",
+    kana: "にゅ",
+    romaji: "nyu",
   },
   {
-      id: "nya",
-      kana: "にゃ",
-      romaji: "nya"
+    id: "nyo",
+    kana: "にょ",
+    romaji: "nyo",
   },
   {
-      id: "nyu",
-      kana: "にゅ",
-      romaji: "nyu"
+    id: "hya",
+    kana: "ひゃ",
+    romaji: "hya",
   },
   {
-      id: "nyo",
-      kana: "にょ",
-      romaji: "nyo"
+    id: "hyu",
+    kana: "ひゅ",
+    romaji: "hyu",
   },
   {
-      id: "hya",
-      kana: "ひゃ",
-      romaji: "hya"
+    id: "hyo",
+    kana: "ひょ",
+    romaji: "hyo",
   },
   {
-      id: "hyu",
-      kana: "ひゅ",
-      romaji: "hyu"
+    id: "mya",
+    kana: "みゃ",
+    romaji: "mya",
   },
   {
-      id: "hyo",
-      kana: "ひょ",
-      romaji: "hyo"
+    id: "myu",
+    kana: "みゅ",
+    romaji: "myu",
   },
   {
-      id: "mya",
-      kana: "みゃ",
-      romaji: "mya"
+    id: "myo",
+    kana: "みょ",
+    romaji: "myo",
   },
   {
-      id: "myu",
-      kana: "みゅ",
-      romaji: "myu"
+    id: "rya",
+    kana: "りゃ",
+    romaji: "rya",
   },
   {
-      id: "myo",
-      kana: "みょ",
-      romaji: "myo"
+    id: "ryu",
+    kana: "りゅ",
+    romaji: "ryu",
   },
   {
-      id: "rya",
-      kana: "りゃ",
-      romaji: "rya"
+    id: "ryo",
+    kana: "りょ",
+    romaji: "ryo",
   },
+];
+
+export const diacritic_digraphs = [
   {
-      id: "ryu",
-      kana: "りゅ",
-      romaji: "ryu"
+    id: "gya",
+    kana: "ぎゃ",
+    romaji: "gya",
   },
   {
-      id: "ryo",
-      kana: "りょ",
-      romaji: "ryo"
+    id: "gyu",
+    kana: "ぎゅ",
+    romaji: "gyu",
   },
   {
-      id: "gya",
-      kana: "ぎゃ",
-      romaji: "gya"
+    id: "gyo",
+    kana: "ぎょ",
+    romaji: "gyo",
   },
   {
-      id: "gyu",
-      kana: "ぎゅ",
-      romaji: "gyu"
+    id: "zya",
+    kana: "じゃ",
+    romaji: "ja",
   },
   {
-      id: "gyo",
-      kana: "ぎょ",
-      romaji: "gyo"
+    id: "zyu",
+    kana: "じゅ",
+    romaji: "ju",
   },
   {
-      id: "zya",
-      kana: "じゃ",
-      romaji: "ja"
+    id: "zyo",
+    kana: "じょ",
+    romaji: "jo",
   },
   {
-      id: "zyu",
-      kana: "じゅ",
-      romaji: "ju"
+    id: "dya",
+    kana: "ぢゃ",
+    romaji: "ja",
   },
   {
-      id: "zyo",
-      kana: "じょ",
-      romaji: "jo"
+    id: "dyu",
+    kana: "ぢゅ",
+    romaji: "ju",
   },
   {
-      id: "dya",
-      kana: "ぢゃ",
-      romaji: "ja"
+    id: "dyo",
+    kana: "ぢょ",
+    romaji: "jo",
   },
   {
-      id: "dyu",
-      kana: "ぢゅ",
-      romaji: "ju"
+    id: "bya",
+    kana: "びゃ",
+    romaji: "bya",
   },
   {
-      id: "dyo",
-      kana: "ぢょ",
-      romaji: "jo"
+    id: "byu",
+    kana: "びゅ",
+    romaji: "byu",
   },
   {
-      id: "bya",
-      kana: "びゃ",
-      romaji: "bya"
+    id: "byo",
+    kana: "にょ",
+    romaji: "byo",
   },
   {
-      id: "byu",
-      kana: "びゅ",
-      romaji: "byu"
+    id: "pya",
+    kana: "ぴゃ",
+    romaji: "pya",
   },
   {
-      id: "byo",
-      kana: "にょ",
-      romaji: "byo"
+    id: "pyu",
+    kana: "ぴゅ",
+    romaji: "pyu",
   },
   {
-      id: "pya",
-      kana: "ぴゃ",
-      romaji: "pya"
+    id: "pyo",
+    kana: "ぴょ",
+    romaji: "pyo",
   },
+];
+
+export const wi_we = [
   {
-      id: "pyu",
-      kana: "ぴゅ",
-      romaji: "pyu"
+    id: "wi",
+    kana: "ゐ",
+    romaji: "wi",
   },
   {
-      id: "pyo",
-      kana: "ぴょ",
-      romaji: "pyo"
-  }
+    id: "we",
+    kana: "ゑ",
+    romaji: "we",
+  },
 ];

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import { hiragana } from '../data/hiragana';
-import { katakana } from '../data/katakana';
+import * as Hiragana from '../data/hiragana';
+import * as Katakana from '../data/katakana';
 
 import Flashcard from './flashcard.js';
 import Dashboard from './dashboard.js';
 
 import '../styles/content.css';
 
-const deck = [...hiragana, ...katakana].map(item => {
+const deck = [...Hiragana.basic, ...Katakana.basic].map(item => {
   return {front: item.kana, back: item.romaji};
 });
 
