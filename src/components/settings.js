@@ -2,6 +2,11 @@ import { useState } from "react";
 
 import "../styles/settings.css";
 
+const LIMITS = {
+  lower: 1,
+  upper: 200,
+};
+
 export default function Settings({ settings, setSettings, setShowSettings }) {
   const [currSettings, setCurrSettings] = useState(settings);
 
@@ -13,14 +18,29 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
     setCurrSettings({ ...currSettings, [e.target.name]: e.target.value });
   };
 
-  const validateSettings = () => true; // placeholder
+  const validateSettings = () => {
+    if (!currSettings.hiragana && !currSettings.katakana) {
+      console.log("at least one kana has to be set");
+      return false;
+    }
+    // TODO: set lower bound to Math.max(LIMITS.lower, count) (needs the prop passed from dashboard)
+    if (
+      currSettings.limit > LIMITS.upper ||
+      currSettings.limit < LIMITS.lower
+    ) {
+      console.log("limit must be within range");
+      return false;
+    }
+    return true;
+  };
 
-  const handleButton = (action) => {
+  const handleAction = (action) => {
     switch (action) {
       case "save":
-        if (validateSettings()) {
-          setSettings(currSettings);
-        } // falls through
+        if (!validateSettings()) {
+          break;
+        }
+        setSettings(currSettings); // falls through
       case "restart":
       case "cancel":
       default:
@@ -109,25 +129,25 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
             type="number"
             id="limit"
             name="limit"
-            min="1"
-            max="200"
+            min={LIMITS.lower}
+            max={LIMITS.upper}
             placeholder={currSettings["limit"]}
             value={currSettings["limit"]}
             onChange={handleInput}
           />
           <span className="note">
-            (max. <strong>200</strong>)
+            (max. <strong>{LIMITS.upper}</strong>)
           </span>
         </p>
       </div>
       <div className="button-container">
-        <button className="green" onClick={() => handleButton("save")}>
+        <button className="green" onClick={() => handleAction("save")}>
           Save
         </button>
-        <button className="yellow" onClick={() => handleButton("restart")}>
+        <button className="yellow" onClick={() => handleAction("restart")}>
           Restart
         </button>
-        <button className="red" onClick={() => handleButton("cancel")}>
+        <button className="red" onClick={() => handleAction("cancel")}>
           Cancel
         </button>
       </div>
