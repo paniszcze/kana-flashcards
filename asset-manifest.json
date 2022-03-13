@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kana-flashcards/static/css/main.795b7c41.css",
-    "main.js": "/kana-flashcards/static/js/main.da6d990b.js",
+    "main.js": "/kana-flashcards/static/js/main.10e3c26d.js",
     "index.html": "/kana-flashcards/index.html",
     "main.795b7c41.css.map": "/kana-flashcards/static/css/main.795b7c41.css.map",
-    "main.da6d990b.js.map": "/kana-flashcards/static/js/main.da6d990b.js.map"
+    "main.10e3c26d.js.map": "/kana-flashcards/static/js/main.10e3c26d.js.map"
   },
   "entrypoints": [
     "static/css/main.795b7c41.css",
-    "static/js/main.da6d990b.js"
+    "static/js/main.10e3c26d.js"
   ]
 }
