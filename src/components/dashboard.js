@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 
-import Modal from './modal';
-import Results from './results';
+import Modal from "./modal";
+import Results from "./results";
 
-import '../styles/dashboard.css';
+import "../styles/dashboard.css";
 
 const getDashoffset = (array, start, limit) => {
   let sum = array.slice(start).reduce((a, b) => a + b, 0);
-  return 440 - Math.floor(sum / limit * 440);
+  return 440 - Math.floor((sum / limit) * 440);
 };
 
 export default function Dashboard({ changeCard, limit }) {
@@ -15,11 +15,16 @@ export default function Dashboard({ changeCard, limit }) {
   const [answers, setAnswers] = useState([0, 0, 0]);
   const [showResults, setShowResults] = useState(false);
 
+  useEffect(() => {
+    if (count >= limit) {
+      setShowResults(true);
+    }
+  }, [count, limit]);
+
   const handleAnswer = (answer) => {
     if (count < limit) {
-      setAnswers(prevAnswers => {
+      setAnswers((prevAnswers) => {
         let newAnswers = [...prevAnswers];
-
         switch (answer) {
           case "red":
             newAnswers[0] += 1;
@@ -33,39 +38,57 @@ export default function Dashboard({ changeCard, limit }) {
           default:
             return prevAnswers;
         }
-
-        setCount(prevCount => prevCount + 1);
-
+        setCount((prevCount) => prevCount + 1);
         return newAnswers;
       });
-      
       changeCard();
     } else {
       setShowResults(true);
     }
-  }
+  };
 
   return (
     <div className="Dashboard">
       <div className="counter">
         <svg>
           <circle cx="70" cy="70" r="70"></circle>
-          <circle className="red-circle" 
-            style={{strokeDashoffset: `${count ? getDashoffset(answers, 0, limit) : 440}px`}}
-            cx="70" cy="70" r="70">
-          </circle>
-          <circle className="yellow-circle" 
-            style={{strokeDashoffset: `${count ? getDashoffset(answers, 1, limit) : 440}px`}}
-            cx="70" cy="70" r="70">
-          </circle>
+          <circle
+            className="red-circle"
+            style={{
+              strokeDashoffset: `${
+                count ? getDashoffset(answers, 0, limit) : 440
+              }px`,
+            }}
+            cx="70"
+            cy="70"
+            r="70"
+          ></circle>
+          <circle
+            className="yellow-circle"
+            style={{
+              strokeDashoffset: `${
+                count ? getDashoffset(answers, 1, limit) : 440
+              }px`,
+            }}
+            cx="70"
+            cy="70"
+            r="70"
+          ></circle>
           <circle
             className="green-circle"
-            style={{strokeDashoffset: `${count ? getDashoffset(answers, 2, limit) : 440}px`}}
-            cx="70" cy="70" r="70">
-          </circle>
+            style={{
+              strokeDashoffset: `${
+                count ? getDashoffset(answers, 2, limit) : 440
+              }px`,
+            }}
+            cx="70"
+            cy="70"
+            r="70"
+          ></circle>
         </svg>
         <div className="number">
-          <div className="statbox">{count}
+          <div className="statbox">
+            {count}
             <div className="statbox-text">
               <div className="redtext">{answers[0]}</div>
               <div className="yellowtext">{answers[1]}</div>
@@ -75,16 +98,26 @@ export default function Dashboard({ changeCard, limit }) {
         </div>
       </div>
       <div className="assessment">
-        <button className="red" onClick={() => handleAnswer("red")}>Nope</button>
-        <button className="yellow" onClick={() => handleAnswer("yellow")}>Kinda</button>
-        <button className="green" onClick={() => handleAnswer("green")}>Yep</button>
+        <button className="red" onClick={() => handleAnswer("red")}>
+          Nope
+        </button>
+        <button className="yellow" onClick={() => handleAnswer("yellow")}>
+          Kinda
+        </button>
+        <button className="green" onClick={() => handleAnswer("green")}>
+          Yep
+        </button>
       </div>
 
       {showResults && (
-      <Modal>
-        <Results answers={answers} limit={limit} setShowResults={setShowResults} />
-      </Modal>
-    )}
+        <Modal>
+          <Results
+            answers={answers}
+            limit={limit}
+            setShowResults={setShowResults}
+          />
+        </Modal>
+      )}
     </div>
   );
 }

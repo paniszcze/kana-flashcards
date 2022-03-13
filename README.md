@@ -11,7 +11,6 @@ Single Page Application built with React.
 ### TODO
 
 - generate flashcard deck based on current state's settings
-- trigger Results modal on reaching the flashcards limit
 - centralise application state (Redux / React hooks)
 - enable restarting learning session (in Results and Settings)
 - display the count numbers in Results modal outside of the count bar if they don't fit in
