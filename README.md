@@ -11,12 +11,12 @@ Single Page Application built with React.
 ### TODO
 
 - generate flashcard deck based on current state's settings
-- make the first flashcard to be randomly generated instead of showing the welcome message ("let's – begin")
-- trigger results modal on reaching the flashcards limit
-- display the count numbers in results modal outside of the count bar if they don't fit in
-- enable quiting modals and dropdowns when clicking on the background
-- set showLanguage to false when accessing Results modal
+- trigger Results modal on reaching the flashcards limit
 - centralise application state (Redux / React hooks)
+- enable restarting learning session (in Results and Settings)
+- display the count numbers in Results modal outside of the count bar if they don't fit in
+- set showLanguage to false when accessing Results modal
+- enable quiting modals and dropdowns when clicking on the background
 - move constants into separate file
 - make svg counter scalable (refactor into function taking width as parameter)
 - add Polish language support
