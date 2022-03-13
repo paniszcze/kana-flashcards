@@ -38,9 +38,9 @@ export default function Dashboard({ changeCard, limit }) {
           default:
             return prevAnswers;
         }
-        setCount((prevCount) => prevCount + 1);
         return newAnswers;
       });
+      setCount((prevCount) => prevCount + 1);
       changeCard();
     } else {
       setShowResults(true);
@@ -110,7 +110,7 @@ export default function Dashboard({ changeCard, limit }) {
       </div>
 
       {showResults && (
-        <Modal>
+        <Modal setVisibility={setShowResults}>
           <Results
             answers={answers}
             limit={limit}

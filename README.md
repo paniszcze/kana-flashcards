@@ -10,14 +10,13 @@ Single Page Application built with React.
 
 ### TODO
 
-- generate flashcard deck based on current state's settings
+- generate flashcard deck based on settings in current state
+- create a queue of flashcards on each run and track the answers to show the least known kana in Results
 - centralise application state (Redux / React hooks)
-- enable restarting learning session (in Results and Settings)
-- display the count numbers in Results modal outside of the count bar if they don't fit in
-- set showLanguage to false when accessing Results modal
-- enable quiting modals and dropdowns when clicking on the background
+- enable restarting learning session ('Restart' button in Results and Settings)
+- display answer counts in Results modal outside of colored bar if they don't fit in
+- hide language toggle when clicking outside dropdown div
 - move constants into separate file
 - make svg counter scalable (refactor into function taking width as parameter)
 - add Polish language support
 - add keyboard navigation
-- create a queue of flashcards on each run and track the answers to show the least known kana in the results

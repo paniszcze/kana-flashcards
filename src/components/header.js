@@ -78,7 +78,7 @@ export default function Header({ settings, setSettings }) {
       </nav>
 
       {showSettings && (
-        <Modal>
+        <Modal setVisibility={setShowSettings}>
           <Settings
             settings={settings}
             setSettings={setSettings}
@@ -88,7 +88,7 @@ export default function Header({ settings, setSettings }) {
       )}
 
       {showInfo && (
-        <Modal>
+        <Modal setVisibility={setShowInfo}>
           <Info setShowInfo={setShowInfo} />
         </Modal>
       )}

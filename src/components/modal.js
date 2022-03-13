@@ -1,13 +1,18 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
-import '../styles/modal.css';
+import "../styles/modal.css";
 
-export default function Modal({ children }) {
-  return ReactDOM.createPortal((
-    <div className="modal-backdrop">
-      <div className="modal">
-        {children}
-      </div>
-    </div>
-  ), document.body)
+export default function Modal({ setVisibility, children }) {
+  const handleClickOutside = (e) => {
+    if (e.target.className === "modal-backdrop") {
+      setVisibility(false);
+    }
+  };
+
+  return ReactDOM.createPortal(
+    <div className="modal-backdrop" onClick={handleClickOutside}>
+      <div className="modal">{children}</div>
+    </div>,
+    document.body
+  );
 }
