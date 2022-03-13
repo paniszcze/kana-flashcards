@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "../styles/settings.css";
 
@@ -7,29 +7,56 @@ const LIMITS = {
   upper: 200,
 };
 
+const ERROR_MESSAGES = {
+  syllabary: "At least one kana has to be set!",
+  extension: "Katakana needs to be chosen in order to study extended kana!",
+  integer: "Flashcard limit has to be an integer!",
+  range: `Flashcard limit must be within range ${
+    LIMITS.lower + "-" + LIMITS.upper
+  }!`,
+};
+
 export default function Settings({ settings, setSettings, setShowSettings }) {
   const [currSettings, setCurrSettings] = useState(settings);
+  const [validationErrors, setValidationErrors] = useState({
+    syllabary: false,
+    extension: false,
+    integer: false,
+    range: false,
+  });
+
+  useEffect(() => {
+    setValidationErrors(() => {
+      return {
+        syllabary: !currSettings.hiragana && !currSettings.katakana,
+        /* TODO: change the logic to include 'katakana' AND 'digraphs' */
+        etension: !currSettings.katakana && currSettings.extended,
+        integer: !Number.isInteger(+currSettings.limit),
+        /* TODO: set lower bound to Math.max(LIMITS.lower, count);
+                 'count' needs to be passed from Dashboard) */
+        range:
+          currSettings.limit > LIMITS.upper ||
+          currSettings.limit < LIMITS.lower,
+      };
+    });
+  }, [currSettings]);
 
   const handleCheckbox = (e) => {
     setCurrSettings({ ...currSettings, [e.target.name]: e.target.checked });
   };
 
   const handleInput = (e) => {
+    /* TODO: prevent the target value from being passed as a string; this cannot be
+             done by simply modifying e.target.value, since it hinders typing in the
+             input field; ideally, parseInt the limit after validation is completed */
     setCurrSettings({ ...currSettings, [e.target.name]: e.target.value });
   };
 
-  const validateSettings = () => {
-    if (!currSettings.hiragana && !currSettings.katakana) {
-      console.log("at least one kana has to be set");
-      return false;
-    }
-    // TODO: set lower bound to Math.max(LIMITS.lower, count) (needs the prop passed from dashboard)
-    if (
-      currSettings.limit > LIMITS.upper ||
-      currSettings.limit < LIMITS.lower
-    ) {
-      console.log("limit must be within range");
-      return false;
+  const isValid = () => {
+    for (const error in validationErrors) {
+      if (validationErrors[error]) {
+        return false;
+      }
     }
     return true;
   };
@@ -37,13 +64,19 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
   const handleAction = (action) => {
     switch (action) {
       case "save":
-        if (!validateSettings()) {
+        if (!isValid()) {
           break;
         }
         setSettings(currSettings); // falls through
       case "restart":
       case "cancel":
       default:
+        setValidationErrors({
+          syllabary: false,
+          extension: false,
+          integer: false,
+          range: false,
+        });
         setShowSettings(false);
     }
   };
@@ -57,7 +90,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="hiragana"
           name="hiragana"
-          checked={currSettings["hiragana"]}
+          checked={currSettings.hiragana}
           onChange={handleCheckbox}
         />
         <label htmlFor="hiragana">Hiragana</label>
@@ -67,18 +100,21 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="katakana"
           name="katakana"
-          checked={currSettings["katakana"]}
+          checked={currSettings.katakana}
           onChange={handleCheckbox}
         />
         <label htmlFor="katakana">Katakana</label>
       </div>
+      {validationErrors.syllabary && (
+        <div className="error-message">{ERROR_MESSAGES.syllabary}</div>
+      )}
       <p>Include:</p>
       <div className="choice">
         <input
           type="checkbox"
           id="diacritics"
           name="diacritics"
-          checked={currSettings["diacritics"]}
+          checked={currSettings.diacritics}
           onChange={handleCheckbox}
         />
         <label htmlFor="diacritics">
@@ -90,7 +126,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="digraphs"
           name="digraphs"
-          checked={currSettings["digraphs"]}
+          checked={currSettings.digraphs}
           onChange={handleCheckbox}
         />
         <label htmlFor="digraphs">
@@ -102,7 +138,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="wi_we"
           name="wi_we"
-          checked={currSettings["wi_we"]}
+          checked={currSettings.wi_we}
           onChange={handleCheckbox}
         />
         <label htmlFor="wi_we">
@@ -117,7 +153,7 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           type="checkbox"
           id="extended"
           name="extended"
-          checked={currSettings["extended"]}
+          checked={currSettings.extended}
           onChange={handleCheckbox}
           disabled={true}
         />
@@ -125,6 +161,9 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           Extended katakana (<strong>not yet available</strong>)
         </label>
       </div>
+      {validationErrors.extension && (
+        <div className="error-message">{ERROR_MESSAGES.extension}</div>
+      )}
       <div className="range">
         <p>
           <label htmlFor="cardsNum">Number of flashcards in deck:</label>
@@ -134,14 +173,20 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
             name="limit"
             min={LIMITS.lower}
             max={LIMITS.upper}
-            placeholder={currSettings["limit"]}
-            value={currSettings["limit"]}
+            placeholder={currSettings.limit}
+            value={currSettings.limit}
             onChange={handleInput}
           />
           <span className="note">
             (max. <strong>{LIMITS.upper}</strong>)
           </span>
         </p>
+        {validationErrors.integer && (
+          <div className="error-message">{ERROR_MESSAGES.integer}</div>
+        )}
+        {!validationErrors.integer && validationErrors.range && (
+          <div className="error-message">{ERROR_MESSAGES.range}</div>
+        )}
       </div>
       <div className="button-container">
         <button className="green" onClick={() => handleAction("save")}>
