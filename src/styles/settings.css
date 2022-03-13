@@ -20,6 +20,10 @@
   max-width: 60px;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .note {
   font-size: 0.8em;
 }

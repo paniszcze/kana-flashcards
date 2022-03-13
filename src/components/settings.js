@@ -110,13 +110,16 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
           <span className="japanese">ゑ/ヱ</span> (<i>we</i>)
         </label>
       </div>
-      <div className="choice">
+      {/* TODO: characters of extended katakana need to be added to dictionary;
+                until then, the checkbox should be disabled */}
+      <div className="choice disabled">
         <input
           type="checkbox"
           id="extended"
           name="extended"
           checked={currSettings["extended"]}
           onChange={handleCheckbox}
+          disabled={true}
         />
         <label htmlFor="extended">
           Extended katakana (<strong>not yet available</strong>)
