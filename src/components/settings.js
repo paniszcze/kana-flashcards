@@ -14,6 +14,7 @@ export default function Settings({
   count,
   setCount,
   setAnswers,
+  changeCard,
 }) {
   const [currSettings, setCurrSettings] = useState({ ...settings });
   const [validationErrors, setValidationErrors] = useState({
@@ -66,7 +67,6 @@ export default function Settings({
     JSON.stringify(objA) !== JSON.stringify(objB);
 
   const handleAction = (action) => {
-    /* TODO: rewrite the logic or refactor into separate functions */
     switch (action) {
       case "save":
         if (!isValid()) {
@@ -77,11 +77,11 @@ export default function Settings({
             ...currSettings,
             limit: parseInt(currSettings.limit),
           });
-          /* TODO: a new card has to be shown on settings change */
+          changeCard();
         } //falls through
       case "restart":
-        /* TODO: a new card has to be shown on restart */
         if (action === "restart") {
+          changeCard();
           setCount(0);
           setAnswers([0, 0, 0]);
         } // falls through
