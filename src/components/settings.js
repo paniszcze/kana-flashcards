@@ -13,7 +13,7 @@ export default function Settings({
   setShowSettings,
   count,
 }) {
-  const [currSettings, setCurrSettings] = useState(settings);
+  const [currSettings, setCurrSettings] = useState({ ...settings });
   const [validationErrors, setValidationErrors] = useState({
     syllabary: false,
     extension: false,
@@ -23,9 +23,9 @@ export default function Settings({
 
   const ERROR_MESSAGES = {
     syllabary: "At least one kana has to be set!",
-    extension: "Katakana needs to be chosen in order to study extended kana!",
+    extension: "Katakana needs to be set in order to study its extension!",
     integer: "Flashcard limit has to be an integer!",
-    range: `Flashcard limit must be within range ${
+    range: `Flashcard limit must fall within the range of ${
       Math.max(LIMITS.lower, count) + "-" + LIMITS.upper
     }!`,
   };
@@ -34,8 +34,7 @@ export default function Settings({
     setValidationErrors(() => {
       return {
         syllabary: !currSettings.hiragana && !currSettings.katakana,
-        /* TODO: change the logic to include 'katakana' AND 'digraphs' */
-        etension: !currSettings.katakana && currSettings.extended,
+        extension: !currSettings.katakana && currSettings.extended,
         integer: !Number.isInteger(+currSettings.limit),
         range:
           currSettings.limit > LIMITS.upper ||
@@ -49,9 +48,6 @@ export default function Settings({
   };
 
   const handleInput = (e) => {
-    /* TODO: prevent the target value from being passed as a string; this cannot be
-             done by simply modifying e.target.value, since it hinders typing in the
-             input field; ideally, parseInt the limit after validation is completed */
     setCurrSettings({ ...currSettings, [e.target.name]: e.target.value });
   };
 
@@ -64,13 +60,21 @@ export default function Settings({
     return true;
   };
 
+  const hasChanged = (objA, objB) =>
+    JSON.stringify(objA) !== JSON.stringify(objB);
+
   const handleAction = (action) => {
     switch (action) {
       case "save":
         if (!isValid()) {
           break;
         }
-        setSettings(currSettings); // falls through
+        if (hasChanged(settings, currSettings)) {
+          setSettings({
+            ...currSettings,
+            limit: parseInt(currSettings.limit),
+          });
+        } // falls through
       case "restart":
       case "cancel":
       default:
@@ -149,16 +153,14 @@ export default function Settings({
           <span className="japanese">ゑ/ヱ</span> (<i>we</i>)
         </label>
       </div>
-      {/* TODO: characters of extended katakana need to be added to dictionary;
-                until then, the checkbox should be disabled */}
-      <div className="choice disabled">
+      <div className={`choice ${currSettings.katakana ? "" : " disabled"}`}>
         <input
           type="checkbox"
           id="extended"
           name="extended"
           checked={currSettings.extended}
           onChange={handleCheckbox}
-          disabled={true}
+          disabled={currSettings.katakana ? false : true}
         />
         <label htmlFor="extended">
           Extended katakana (<strong>not yet available</strong>)
