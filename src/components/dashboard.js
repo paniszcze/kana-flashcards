@@ -45,9 +45,10 @@ export default function Dashboard({
         }
         return newAnswers;
       });
+      if (count < limit - 1) {
+        changeCard();
+      }
       setCount((prevCount) => prevCount + 1);
-      // TODO: prevent the last card in deck from changing
-      changeCard();
     } else {
       setShowResults(true);
     }
