@@ -17,7 +17,7 @@ const chooseRandomCard = (deck) => {
   return deck[randomIndex];
 };
 
-export default function Content({ settings }) {
+export default function Content({ settings, count, setCount }) {
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState(chooseRandomCard(deck));
 
@@ -45,7 +45,12 @@ export default function Content({ settings }) {
   return (
     <main className="Content">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
-      <Dashboard changeCard={changeCard} limit={settings.limit} />
+      <Dashboard
+        changeCard={changeCard}
+        limit={settings.limit}
+        count={count}
+        setCount={setCount}
+      />
     </main>
   );
 }

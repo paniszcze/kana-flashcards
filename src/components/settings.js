@@ -7,16 +7,12 @@ const LIMITS = {
   upper: 200,
 };
 
-const ERROR_MESSAGES = {
-  syllabary: "At least one kana has to be set!",
-  extension: "Katakana needs to be chosen in order to study extended kana!",
-  integer: "Flashcard limit has to be an integer!",
-  range: `Flashcard limit must be within range ${
-    LIMITS.lower + "-" + LIMITS.upper
-  }!`,
-};
-
-export default function Settings({ settings, setSettings, setShowSettings }) {
+export default function Settings({
+  settings,
+  setSettings,
+  setShowSettings,
+  count,
+}) {
   const [currSettings, setCurrSettings] = useState(settings);
   const [validationErrors, setValidationErrors] = useState({
     syllabary: false,
@@ -25,6 +21,15 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
     range: false,
   });
 
+  const ERROR_MESSAGES = {
+    syllabary: "At least one kana has to be set!",
+    extension: "Katakana needs to be chosen in order to study extended kana!",
+    integer: "Flashcard limit has to be an integer!",
+    range: `Flashcard limit must be within range ${
+      Math.max(LIMITS.lower, count) + "-" + LIMITS.upper
+    }!`,
+  };
+
   useEffect(() => {
     setValidationErrors(() => {
       return {
@@ -32,14 +37,12 @@ export default function Settings({ settings, setSettings, setShowSettings }) {
         /* TODO: change the logic to include 'katakana' AND 'digraphs' */
         etension: !currSettings.katakana && currSettings.extended,
         integer: !Number.isInteger(+currSettings.limit),
-        /* TODO: set lower bound to Math.max(LIMITS.lower, count);
-                 'count' needs to be passed from Dashboard) */
         range:
           currSettings.limit > LIMITS.upper ||
-          currSettings.limit < LIMITS.lower,
+          currSettings.limit < Math.max(LIMITS.lower, count),
       };
     });
-  }, [currSettings]);
+  }, [currSettings, count]);
 
   const handleCheckbox = (e) => {
     setCurrSettings({ ...currSettings, [e.target.name]: e.target.checked });

@@ -16,11 +16,12 @@ export default function App() {
     extended: false,
     limit: 50,
   });
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <Header settings={settings} setSettings={setSettings} />
-      <Content settings={settings} />
+      <Header settings={settings} setSettings={setSettings} count={count} />
+      <Content settings={settings} count={count} setCount={setCount} />
       <Footer />
     </div>
   );
