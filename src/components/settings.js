@@ -77,7 +77,9 @@ export default function Settings({
             ...currSettings,
             limit: parseInt(currSettings.limit),
           });
-          changeCard();
+          if (count !== currSettings.limit) {
+            changeCard();
+          }
         } //falls through
       case "restart":
         if (action === "restart") {
