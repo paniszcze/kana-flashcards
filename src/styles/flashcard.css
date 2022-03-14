@@ -2,6 +2,7 @@
   min-height: 180px;
   flex: 2;
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .front,
