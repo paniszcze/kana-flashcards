@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import * as Hiragana from "../data/hiragana";
 import * as Katakana from "../data/katakana";
@@ -8,18 +8,63 @@ import Dashboard from "./dashboard.js";
 
 import "../styles/content.css";
 
-const deck = [...Hiragana.basic, ...Katakana.basic].map((item) => {
-  return { front: item.kana, back: item.romaji };
-});
+const generateDict = (settings) => {
+  let newDict = [];
+  if (settings.hiragana) {
+    newDict.push(...Hiragana.basic);
+    if (settings.diacritics) {
+      newDict.push(...Hiragana.diacritics);
+    }
+    if (settings.digraphs) {
+      newDict.push(...Hiragana.digraphs);
+    }
+    if (settings.digraphs && settings.diacritics) {
+      newDict.push(...Hiragana.diacritic_digraphs);
+    }
+    if (settings.wi_we) {
+      newDict.push(...Hiragana.wi_we);
+    }
+  }
+  if (settings.katakana) {
+    newDict.push(...Katakana.basic);
+    if (settings.diacritics) {
+      newDict.push(...Katakana.diacritics);
+    }
+    if (settings.digraphs) {
+      newDict.push(...Katakana.digraphs);
+    }
+    if (settings.digraphs && settings.diacritics) {
+      newDict.push(...Katakana.diacritic_digraphs);
+    }
+    if (settings.wi_we) {
+      newDict.push(...Katakana.wi_we);
+    }
+    if (settings.extended) {
+      // TODO: add entries from extended katakana once they exist
+    }
+  }
+  return newDict;
+};
+
+const mapToDeck = (dict) =>
+  dict.map((item) => {
+    return { front: item.kana, back: item.romaji };
+  });
 
 const chooseRandomCard = (deck) => {
   let randomIndex = Math.floor(Math.random() * deck.length);
   return deck[randomIndex];
 };
 
+const deck = mapToDeck([...Hiragana.basic, ...Katakana.basic]);
+
 export default function Content({ settings, count, setCount }) {
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState(chooseRandomCard(deck));
+
+  useEffect(() => {
+    deck.splice(0, deck.length, ...mapToDeck(generateDict(settings)));
+  }, [settings]);
 
   const flipFlashcard = () => {
     setFlipped((prevFlipped) => !prevFlipped);
