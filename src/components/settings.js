@@ -12,6 +12,8 @@ export default function Settings({
   setSettings,
   setShowSettings,
   count,
+  setCount,
+  setAnswers,
 }) {
   const [currSettings, setCurrSettings] = useState({ ...settings });
   const [validationErrors, setValidationErrors] = useState({
@@ -74,8 +76,14 @@ export default function Settings({
             ...currSettings,
             limit: parseInt(currSettings.limit),
           });
-        } // falls through
+        } //falls through
       case "restart":
+        /* TODO: a new card has to be shown on restart; this would probably
+        be easier, if the application's state had been centralised... */
+        if (action === "restart") {
+          setCount(0);
+          setAnswers([0, 0, 0]);
+        } // falls through
       case "cancel":
       default:
         setValidationErrors({

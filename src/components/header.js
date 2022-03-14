@@ -17,7 +17,13 @@ const languages = [
   },
 ];
 
-export default function Header({ settings, setSettings, count }) {
+export default function Header({
+  settings,
+  setSettings,
+  count,
+  setCount,
+  setAnswers,
+}) {
   const [language, setLanguage] = useState(languages[0]);
   const [showLanguage, setShowLanguage] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -84,6 +90,8 @@ export default function Header({ settings, setSettings, count }) {
             setSettings={setSettings}
             setShowSettings={setShowSettings}
             count={count}
+            setCount={setCount}
+            setAnswers={setAnswers}
           />
         </Modal>
       )}

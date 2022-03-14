@@ -17,11 +17,24 @@ export default function App() {
     limit: 50,
   });
   const [count, setCount] = useState(0);
+  const [answers, setAnswers] = useState([0, 0, 0]);
 
   return (
     <div className="App">
-      <Header settings={settings} setSettings={setSettings} count={count} />
-      <Content settings={settings} count={count} setCount={setCount} />
+      <Header
+        settings={settings}
+        setSettings={setSettings}
+        count={count}
+        setCount={setCount}
+        setAnswers={setAnswers}
+      />
+      <Content
+        settings={settings}
+        count={count}
+        setCount={setCount}
+        answers={answers}
+        setAnswers={setAnswers}
+      />
       <Footer />
     </div>
   );

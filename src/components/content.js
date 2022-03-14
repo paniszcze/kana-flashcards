@@ -58,7 +58,13 @@ const chooseRandomCard = (deck) => {
 
 const deck = mapToDeck([...Hiragana.basic, ...Katakana.basic]);
 
-export default function Content({ settings, count, setCount }) {
+export default function Content({
+  settings,
+  count,
+  setCount,
+  answers,
+  setAnswers,
+}) {
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState(chooseRandomCard(deck));
 
@@ -95,6 +101,8 @@ export default function Content({ settings, count, setCount }) {
         limit={settings.limit}
         count={count}
         setCount={setCount}
+        answers={answers}
+        setAnswers={setAnswers}
       />
     </main>
   );
