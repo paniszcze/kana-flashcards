@@ -40,10 +40,18 @@ export default function Dashboard({ changeCard, limit, count, setCount }) {
         return newAnswers;
       });
       setCount((prevCount) => prevCount + 1);
+      // TODO: prevent the last card in deck from changing
       changeCard();
     } else {
       setShowResults(true);
     }
+  };
+
+  const restartSession = () => {
+    setCount(0);
+    setAnswers([0, 0, 0]);
+    setShowResults(false);
+    changeCard();
   };
 
   return (
@@ -113,6 +121,7 @@ export default function Dashboard({ changeCard, limit, count, setCount }) {
           <Results
             answers={answers}
             limit={limit}
+            restartSession={restartSession}
             setShowResults={setShowResults}
           />
         </Modal>

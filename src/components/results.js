@@ -15,7 +15,7 @@ const convertToProgressbar = (item, index) => {
   );
 };
 
-export default function Results({ answers, limit, setShowResults }) {
+export default function Results({ answers, limit, restartSession, setShowResults }) {
   const colors = ["#C23866", "#FED766", "#8FB339"];
   const resultData = answers.map((item, index) => {
     return {
@@ -27,12 +27,14 @@ export default function Results({ answers, limit, setShowResults }) {
 
   return (
     <div className="Results">
-      <h3>Results:</h3>
+      <h3>Results</h3>
       <div className="results-container">
         {resultData.map((item, index) => convertToProgressbar(item, index))}
       </div>
       <div className="button-container">
-        <button className="yellow">Restart</button>
+        <button className="yellow" onClick={restartSession}>
+          Restart
+        </button>
         <button className="red" onClick={() => setShowResults(false)}>
           Close
         </button>
