@@ -60,6 +60,7 @@ const chooseRandomCard = (deck) => {
 const deck = mapToDeck([...Hiragana.basic, ...Katakana.basic]);
 
 export default function App() {
+  const [language, setLanguage] = useState("EN");
   const [settings, setSettings] = useState({
     hiragana: true,
     katakana: true,
@@ -102,6 +103,8 @@ export default function App() {
   return (
     <div className="App">
       <Header
+        language={language}
+        setLanguage={setLanguage}
         settings={settings}
         setSettings={setSettings}
         count={count}
@@ -110,6 +113,7 @@ export default function App() {
         changeCard={changeCard}
       />
       <Content
+        language={language}
         settings={settings}
         count={count}
         setCount={setCount}
@@ -120,7 +124,7 @@ export default function App() {
         card={card}
         changeCard={changeCard}
       />
-      <Footer />
+      <Footer language={language} />
     </div>
   );
 }

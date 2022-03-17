@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Interweave } from "interweave";
+
+import { contents, errors } from "../assets/contents";
 
 import "../styles/settings.css";
 
@@ -8,6 +11,7 @@ const LIMITS = {
 };
 
 export default function Settings({
+  language,
   settings,
   setSettings,
   setShowSettings,
@@ -23,17 +27,6 @@ export default function Settings({
     integer: false,
     range: false,
   });
-
-  const ERROR_MESSAGES = {
-    syllabary: "At least one kana has to be set!",
-    extension:
-      "Extension requires katakana, diacritics and digraphs!",
-    integer: "Flashcard limit has to be an integer!",
-    range: `Flashcard limit must fall within the range of ${
-      Math.max(LIMITS.lower, count) + "-" + LIMITS.upper
-    }!`,
-  };
-
   useEffect(() => {
     setValidationErrors(() => {
       return {
@@ -106,8 +99,8 @@ export default function Settings({
 
   return (
     <div className="Settings">
-      <h3>Settings</h3>
-      <p>Choose syllabary sets to practice:</p>
+      <h3>{contents.settings[language]}</h3>
+      <p>{contents.syllabary[language]}</p>
       <div className="choice">
         <input
           type="checkbox"
@@ -116,7 +109,7 @@ export default function Settings({
           checked={currSettings.hiragana}
           onChange={handleCheckbox}
         />
-        <label htmlFor="hiragana">Hiragana</label>
+        <label htmlFor="hiragana">{contents.hiragana[language]}</label>
       </div>
       <div className="choice">
         <input
@@ -126,12 +119,12 @@ export default function Settings({
           checked={currSettings.katakana}
           onChange={handleCheckbox}
         />
-        <label htmlFor="katakana">Katakana</label>
+        <label htmlFor="katakana">{contents.katakana[language]}</label>
       </div>
       {validationErrors.syllabary && (
-        <div className="error-message">{ERROR_MESSAGES.syllabary}</div>
+        <div className="error-message">{errors.syllabary[language]}</div>
       )}
-      <p>Include:</p>
+      <p>{contents.include[language]}</p>
       <div className="choice">
         <input
           type="checkbox"
@@ -141,7 +134,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="diacritics">
-          Diacritics (<i>dakuten</i> and <i>handakuten</i>)
+          <Interweave content={contents.diacritics[language]} />
         </label>
       </div>
       <div className="choice">
@@ -153,7 +146,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="digraphs">
-          Digraphs (<i>yō-on</i>)
+          <Interweave content={contents.digraphs[language]} />
         </label>
       </div>
       <div className="choice">
@@ -165,8 +158,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="wi_we">
-          <span className="japanese">ゐ/ヰ</span> (<i>wi</i>) and{" "}
-          <span className="japanese">ゑ/ヱ</span> (<i>we</i>)
+          <Interweave content={contents.wi_we[language]} />
         </label>
       </div>
       <div
@@ -192,16 +184,14 @@ export default function Settings({
               : true
           }
         />
-        <label htmlFor="extended">
-          Extended katakana (foreign sounds representation)
-        </label>
+        <label htmlFor="extended">{contents.extension[language]}</label>
       </div>
       {validationErrors.extension && (
-        <div className="error-message">{ERROR_MESSAGES.extension}</div>
+        <div className="error-message">{errors.extension[language]}</div>
       )}
       <div className="range">
         <p>
-          <label htmlFor="cardsNum">Number of flashcards in deck:</label>
+          <label htmlFor="cardsNum">{contents.limit[language]}</label>
           <input
             type="number"
             id="limit"
@@ -217,21 +207,23 @@ export default function Settings({
           </span>
         </p>
         {validationErrors.integer && (
-          <div className="error-message">{ERROR_MESSAGES.integer}</div>
+          <div className="error-message">{errors.integer[language]}</div>
         )}
         {!validationErrors.integer && validationErrors.range && (
-          <div className="error-message">{ERROR_MESSAGES.range}</div>
+          <div className="error-message">
+            {errors.range[language]} {Math.max(LIMITS.lower, count) + "-" + LIMITS.upper}!
+          </div>
         )}
       </div>
       <div className="button-container">
         <button className="green" onClick={() => handleAction("save")}>
-          Save
+          {contents.save[language]}
         </button>
         <button className="yellow" onClick={() => handleAction("restart")}>
-          Restart
+          {contents.restart[language]}
         </button>
         <button className="red" onClick={() => handleAction("cancel")}>
-          Cancel
+          {contents.cancel[language]}
         </button>
       </div>
     </div>

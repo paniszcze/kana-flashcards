@@ -4,6 +4,7 @@ import Dashboard from "./dashboard.js";
 import "../styles/content.css";
 
 export default function Content({
+  language,
   settings,
   count,
   setCount,
@@ -18,6 +19,7 @@ export default function Content({
     <main className="Content">
       <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
       <Dashboard
+        language={language}
         changeCard={changeCard}
         limit={settings.limit}
         count={count}

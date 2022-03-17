@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import Modal from "./modal";
 import Results from "./results";
+import { contents } from "../assets/contents";
 
 import "../styles/dashboard.css";
 
@@ -11,6 +12,7 @@ const getDashoffset = (array, start, limit) => {
 };
 
 export default function Dashboard({
+  language,
   changeCard,
   limit,
   count,
@@ -113,19 +115,20 @@ export default function Dashboard({
       </div>
       <div className="assessment">
         <button className="red" onClick={() => handleAnswer("red")}>
-          Nope
+          {contents.negative[language]}
         </button>
         <button className="yellow" onClick={() => handleAnswer("yellow")}>
-          Kinda
+        {contents.neutral[language]}
         </button>
         <button className="green" onClick={() => handleAnswer("green")}>
-          Yep
+        {contents.positive[language]}
         </button>
       </div>
 
       {showResults && (
         <Modal setVisibility={setShowResults}>
           <Results
+            language={language}
             answers={answers}
             limit={limit}
             restartSession={restartSession}

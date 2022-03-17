@@ -1,3 +1,5 @@
+import { contents } from "../assets/contents";
+
 import "../styles/results.css";
 
 const convertToProgressbar = (item, index) => {
@@ -15,7 +17,13 @@ const convertToProgressbar = (item, index) => {
   );
 };
 
-export default function Results({ answers, limit, restartSession, setShowResults }) {
+export default function Results({
+  language,
+  answers,
+  limit,
+  restartSession,
+  setShowResults,
+}) {
   const colors = ["#C23866", "#FED766", "#8FB339"];
   const resultData = answers.map((item, index) => {
     return {
@@ -27,16 +35,16 @@ export default function Results({ answers, limit, restartSession, setShowResults
 
   return (
     <div className="Results">
-      <h3>Results</h3>
+      <h3>{contents.results[language]}</h3>
       <div className="results-container">
         {resultData.map((item, index) => convertToProgressbar(item, index))}
       </div>
       <div className="button-container">
         <button className="yellow" onClick={restartSession}>
-          Restart
+          {contents.restart[language]}
         </button>
         <button className="red" onClick={() => setShowResults(false)}>
-          Close
+          {contents.close[language]}
         </button>
       </div>
     </div>

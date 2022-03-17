@@ -3,21 +3,13 @@ import { useState } from "react";
 import Modal from "./modal";
 import Settings from "./settings";
 import Info from "./info";
+import { languages, contents } from "../assets/contents";
 
 import "../styles/header.css";
 
-const languages = [
-  {
-    language: "English",
-    abbreviation: "EN",
-  },
-  {
-    language: "Polski",
-    abbreviation: "PL",
-  },
-];
-
 export default function Header({
+  language,
+  setLanguage,
   settings,
   setSettings,
   count,
@@ -25,7 +17,6 @@ export default function Header({
   setAnswers,
   changeCard,
 }) {
-  const [language, setLanguage] = useState(languages[0]);
   const [showLanguage, setShowLanguage] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
@@ -35,32 +26,30 @@ export default function Header({
   };
 
   const changeLanguage = (index) => {
-    setLanguage(languages[index]);
+    setLanguage(languages[index].id);
     setShowLanguage(false);
   };
 
   return (
     <header className="Header">
       <div className="title-container">
-        <h1 className="title">Kana Flashcards</h1>
-        <h2 className="subtitle">
-          Learn Japanese kana with customisable flashcard deck!
-        </h2>
+        <h1 className="title">{contents.title[language]}</h1>
+        <h2 className="subtitle">{contents.subtitle[language]}</h2>
       </div>
       <nav>
         <div className={`dropdown${showLanguage ? " show-dropdown" : ""}`}>
           <button className="main-language" onClick={toggleLanguageDropdown}>
-            {language.abbreviation}
+            {language}
           </button>
           {showLanguage && (
             <div className="dropdown-content">
               {languages.map((item, index) => (
                 <button
                   id={index}
-                  key={item.abbreviation}
+                  key={item.id}
                   onClick={() => changeLanguage(index)}
                 >
-                  {item.abbreviation}
+                  {item.id}
                 </button>
               ))}
             </div>
@@ -72,7 +61,7 @@ export default function Header({
             setShowLanguage(false);
           }}
         >
-          Settings
+          {contents.settings[language]}
         </button>
         <button
           onClick={() => {
@@ -80,13 +69,14 @@ export default function Header({
             setShowLanguage(false);
           }}
         >
-          Info
+          {contents.info[language]}
         </button>
       </nav>
 
       {showSettings && (
         <Modal setVisibility={setShowSettings}>
           <Settings
+            language={language}
             settings={settings}
             setSettings={setSettings}
             setShowSettings={setShowSettings}
@@ -100,7 +90,7 @@ export default function Header({
 
       {showInfo && (
         <Modal setVisibility={setShowInfo}>
-          <Info setShowInfo={setShowInfo} />
+          <Info language={language} setShowInfo={setShowInfo} />
         </Modal>
       )}
     </header>
