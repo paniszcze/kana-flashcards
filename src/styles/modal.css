@@ -28,16 +28,20 @@
 } */
 
 .modal {
-  width: 420px;
+  box-sizing: border-box;
   margin: auto;
   padding: 20px 40px 40px;
+  width: 500px;
   background: #ffffff;
   border-radius: 8px;
 }
 
 @media (max-width: 580px) {
   .modal {
-    width: 80%;
+    padding: 10px 30px 30px;
+    max-width: 90vw;
+    max-height: 86vh;
+    overflow-y: scroll;
   }
 }
 

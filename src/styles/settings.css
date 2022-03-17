@@ -1,8 +1,15 @@
 /* .Settings {} */
 
 .choice {
+  display: flex;
   text-align: left;
-  padding-left: 20px;
+  padding: 0.2em 0 0.2em 20px;
+}
+
+@media (max-width: 360px) {
+  .choice {
+    padding-left: 10px;
+  }
 }
 
 .choice label {
@@ -13,12 +20,21 @@
 .range p {
   display: flex;
   gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .range input {
   text-align: center;
   min-width: 50px;
   max-width: 60px;
+  max-height: 2em;
+}
+
+.no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
 }
 
 .disabled {
