@@ -55,7 +55,7 @@ export const basic = [
     romaji: "sa",
   },
   {
-    id: "si",
+    id: "shi",
     kana: "し",
     romaji: "shi",
   },
@@ -80,12 +80,12 @@ export const basic = [
     romaji: "ta",
   },
   {
-    id: "ti",
+    id: "chi",
     kana: "ち",
     romaji: "chi",
   },
   {
-    id: "tu",
+    id: "tsu",
     kana: "つ",
     romaji: "tsu",
   },
@@ -225,7 +225,7 @@ export const basic = [
     romaji: "wo",
   },
   {
-    id: "-n",
+    id: "n",
     kana: "ん",
     romaji: "n",
   },
@@ -356,11 +356,6 @@ export const diacritics = [
     id: "po",
     kana: "ぽ",
     romaji: "po",
-  },
-  {
-    id: "vu",
-    kana: "ゔ",
-    romaji: "vu",
   },
 ];
 

@@ -55,7 +55,7 @@ export const basic = [
     romaji: "sa",
   },
   {
-    id: "si",
+    id: "shi",
     kana: "シ",
     romaji: "shi",
   },
@@ -80,12 +80,12 @@ export const basic = [
     romaji: "ta",
   },
   {
-    id: "ti",
+    id: "chi",
     kana: "チ",
     romaji: "chi",
   },
   {
-    id: "tu",
+    id: "tsu",
     kana: "ツ",
     romaji: "tsu",
   },
@@ -225,7 +225,7 @@ export const basic = [
     romaji: "wo",
   },
   {
-    id: "-n",
+    id: "n",
     kana: "ン",
     romaji: "n",
   },
@@ -356,11 +356,6 @@ export const diacritics = [
     id: "po",
     kana: "ポ",
     romaji: "po",
-  },
-  {
-    id: "vu",
-    kana: "ヴ",
-    romaji: "vu",
   },
 ];
 
@@ -563,4 +558,170 @@ export const wi_we = [
   },
 ];
 
-// export const extended = [{}];
+export const extended = [
+  {
+    id: "ye",
+    kana: "イェ",
+    romaji: "ye",
+  },
+  {
+    id: "ui",
+    kana: "ウィ",
+    romaji: "wi",
+  },
+  {
+    id: "ue",
+    kana: "ウェ",
+    romaji: "we",
+  },
+  {
+    id: "uo",
+    kana: "ウォ",
+    romaji: "wo",
+  },
+  {
+    id: "va",
+    kana: "ヴァ",
+    romaji: "va",
+  },
+  {
+    id: "vi",
+    kana: "ヴィ",
+    romaji: "vi",
+  },
+  {
+    id: "vu",
+    kana: "ヴ",
+    romaji: "vu",
+  },
+  {
+    id: "ve",
+    kana: "ヴェ",
+    romaji: "ve",
+  },
+  {
+    id: "vo",
+    kana: "ヴォ",
+    romaji: "vo",
+  },
+  {
+    id: "vyu",
+    kana: "ヴュ",
+    romaji: "vyu",
+  },
+  {
+    id: "kwa",
+    kana: "クァ",
+    romaji: "kwa",
+  },
+  {
+    id: "kwi",
+    kana: "クィ",
+    romaji: "kwi",
+  },
+  {
+    id: "kwe",
+    kana: "クェ",
+    romaji: "kwe",
+  },
+  {
+    id: "kwo",
+    kana: "クォ",
+    romaji: "kwo",
+  },
+  {
+    id: "gwa",
+    kana: "グァ",
+    romaji: "gwa",
+  },
+  {
+    id: "she",
+    kana: "シェ",
+    romaji: "she",
+  },
+  {
+    id: "je",
+    kana: "ジェ",
+    romaji: "je",
+  },
+  {
+    id: "che",
+    kana: "チェ",
+    romaji: "che",
+  },
+  {
+    id: "tsa",
+    kana: "ツァ",
+    romaji: "tsa",
+  },
+  {
+    id: "tsi",
+    kana: "ツィ",
+    romaji: "tsi",
+  },
+  {
+    id: "tse",
+    kana: "ツェ",
+    romaji: "tse",
+  },
+  {
+    id: "tso",
+    kana: "ツォ",
+    romaji: "tso",
+  },
+  {
+    id: "tei",
+    kana: "ティ",
+    romaji: "ti",
+  },
+  {
+    id: "tou",
+    kana: "トゥ",
+    romaji: "tu",
+  },
+  {
+    id: "tyu",
+    kana: "テュ",
+    romaji: "tyu",
+  },
+  {
+    id: "dei",
+    kana: "ディ",
+    romaji: "di",
+  },
+  {
+    id: "dou",
+    kana: "ドゥ",
+    romaji: "du",
+  },
+  {
+    id: "dyu",
+    kana: "デュ",
+    romaji: "dyu",
+  },
+  {
+    id: "fa",
+    kana: "ファ",
+    romaji: "fa",
+  },
+  {
+    id: "fi",
+    kana: "フィ",
+    romaji: "fi",
+  },
+  {
+    id: "fe",
+    kana: "フェ",
+    romaji: "fe",
+  },
+  {
+    id: "fo",
+    kana: "フォ",
+    romaji: "fo",
+  },
+  {
+    id: "fyu",
+    kana: "フュ",
+    romaji: "fyu",
+  },
+];
