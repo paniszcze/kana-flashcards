@@ -84,7 +84,11 @@ export default function App() {
   };
 
   const changeCard = () => {
-    let newCard = chooseRandomCard(deck);
+    let newCard;
+
+    do {
+      newCard = chooseRandomCard(deck);
+    } while (newCard.front === card.front);
 
     if (flipped) {
       setCard((prevCard) => {
