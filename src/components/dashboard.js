@@ -6,9 +6,13 @@ import { contents } from "../assets/contents";
 
 import "../styles/dashboard.css";
 
+const STROKE = 7;
+const RADIUS = 50 - STROKE / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
 const getDashoffset = (array, start, limit) => {
   let sum = array.slice(start).reduce((a, b) => a + b, 0);
-  return 440 - Math.floor((sum / limit) * 440);
+  return CIRCUMFERENCE - Math.floor((sum / limit) * CIRCUMFERENCE);
 };
 
 export default function Dashboard({
@@ -66,40 +70,53 @@ export default function Dashboard({
   return (
     <div className="Dashboard">
       <div className="counter">
-        <svg>
-          <circle cx="70" cy="70" r="70"></circle>
+        <svg viewBox="0 0 100 100">
+          <circle
+            style={{
+              strokeWidth: `${STROKE}`,
+            }}
+            cx="50"
+            cy="50"
+            r={RADIUS}
+          ></circle>
           <circle
             className="red-circle"
             style={{
+              strokeWidth: `${STROKE}`,
+              strokeDasharray: `${CIRCUMFERENCE} ${CIRCUMFERENCE}`,
               strokeDashoffset: `${
-                count ? getDashoffset(answers, 0, limit) : 440
-              }px`,
+                count ? getDashoffset(answers, 0, limit) : CIRCUMFERENCE
+              }`,
             }}
-            cx="70"
-            cy="70"
-            r="70"
+            cx="50"
+            cy="50"
+            r={RADIUS}
           ></circle>
           <circle
             className="yellow-circle"
             style={{
+              strokeWidth: `${STROKE}`,
+              strokeDasharray: `${CIRCUMFERENCE} ${CIRCUMFERENCE}`,
               strokeDashoffset: `${
-                count ? getDashoffset(answers, 1, limit) : 440
-              }px`,
+                count ? getDashoffset(answers, 1, limit) : CIRCUMFERENCE
+              }`,
             }}
-            cx="70"
-            cy="70"
-            r="70"
+            cx="50"
+            cy="50"
+            r={RADIUS}
           ></circle>
           <circle
             className="green-circle"
             style={{
+              strokeWidth: `${STROKE}`,
+              strokeDasharray: `${CIRCUMFERENCE} ${CIRCUMFERENCE}`,
               strokeDashoffset: `${
-                count ? getDashoffset(answers, 2, limit) : 440
-              }px`,
+                count ? getDashoffset(answers, 2, limit) : CIRCUMFERENCE
+              }`,
             }}
-            cx="70"
-            cy="70"
-            r="70"
+            cx="50"
+            cy="50"
+            r={RADIUS}
           ></circle>
         </svg>
         <div className="number">
@@ -118,10 +135,10 @@ export default function Dashboard({
           {contents.negative[language]}
         </button>
         <button className="yellow" onClick={() => handleAnswer("yellow")}>
-        {contents.neutral[language]}
+          {contents.neutral[language]}
         </button>
         <button className="green" onClick={() => handleAnswer("green")}>
-        {contents.positive[language]}
+          {contents.positive[language]}
         </button>
       </div>
 
