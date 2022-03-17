@@ -15,7 +15,6 @@ Single Page Application built with React.
 - rewrite logic of handling buttons in Settings or refactor into smaller functions
 - display answer counts in Results modal outside the colored bars if they don't fit in
 - move constants into separate file
-- make svg counter scalable (refactor into function taking width as parameter)
 
 #### Bugs:
 - card change when saving Settings should happen once the dictionary has been updated
