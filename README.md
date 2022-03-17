@@ -25,5 +25,4 @@ Single Page Application built with React.
 - create a queue of flashcards on each run (array of indexes) and add logic to minimise card repetition
 - track the answers to show the least known kana in Results
 - write down general instructions in Info
-- add Polish language support
 - add keyboard navigation
