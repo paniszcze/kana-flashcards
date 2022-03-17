@@ -41,7 +41,7 @@ const generateDict = (settings) => {
       newDict.push(...Katakana.wi_we);
     }
     if (settings.extended) {
-      // TODO: add entries from extended katakana once they exist
+      newDict.push(...Katakana.extended);
     }
   }
   return newDict;

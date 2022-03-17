@@ -26,7 +26,8 @@ export default function Settings({
 
   const ERROR_MESSAGES = {
     syllabary: "At least one kana has to be set!",
-    extension: "Katakana needs to be set in order to study its extension!",
+    extension:
+      "Extension requires katakana, diacritics and digraphs!",
     integer: "Flashcard limit has to be an integer!",
     range: `Flashcard limit must fall within the range of ${
       Math.max(LIMITS.lower, count) + "-" + LIMITS.upper
@@ -37,7 +38,11 @@ export default function Settings({
     setValidationErrors(() => {
       return {
         syllabary: !currSettings.hiragana && !currSettings.katakana,
-        extension: !currSettings.katakana && currSettings.extended,
+        extension:
+          (!currSettings.katakana ||
+            !currSettings.diacritics ||
+            !currSettings.digraphs) &&
+          currSettings.extended,
         integer: !Number.isInteger(+currSettings.limit),
         range:
           currSettings.limit > LIMITS.upper ||
@@ -164,17 +169,31 @@ export default function Settings({
           <span className="japanese">ゑ/ヱ</span> (<i>we</i>)
         </label>
       </div>
-      <div className={`choice ${currSettings.katakana ? "" : " disabled"}`}>
+      <div
+        className={`choice ${
+          currSettings.katakana &&
+          currSettings.diacritics &&
+          currSettings.digraphs
+            ? ""
+            : " disabled"
+        }`}
+      >
         <input
           type="checkbox"
           id="extended"
           name="extended"
           checked={currSettings.extended}
           onChange={handleCheckbox}
-          disabled={currSettings.katakana ? false : true}
+          disabled={
+            currSettings.katakana &&
+            currSettings.diacritics &&
+            currSettings.digraphs
+              ? false
+              : true
+          }
         />
         <label htmlFor="extended">
-          Extended katakana (<strong>not yet available</strong>)
+          Extended katakana (foreign sounds representation)
         </label>
       </div>
       {validationErrors.extension && (
