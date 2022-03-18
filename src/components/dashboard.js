@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react";
 
+import { STROKE, RADIUS, CIRCUMFERENCE } from "../utils/constants";
+import { getDashoffset } from "../utils/counter";
+
 import Modal from "./modal";
 import Results from "./results";
 import { contents } from "../assets/contents";
 
 import "../styles/dashboard.css";
-
-const STROKE = 7;
-const RADIUS = 50 - STROKE / 2;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-const getDashoffset = (array, start, limit) => {
-  let sum = array.slice(start).reduce((a, b) => a + b, 0);
-  return CIRCUMFERENCE - Math.floor((sum / limit) * CIRCUMFERENCE);
-};
 
 export default function Dashboard({
   language,

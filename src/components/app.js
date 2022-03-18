@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-import { generateDict, mapToDeck } from "../utils/dictionary";
+import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "../utils/constants";
+import { generateDeck, chooseRandomCard } from "../utils/deck";
 
 import Header from "./header";
 import Content from "./content";
@@ -9,34 +10,17 @@ import Footer from "./footer";
 
 import "../styles/app.css";
 
-const INITIAL_LANGUAGE = "EN";
-
-const INITIAL_SETTINGS = {
-  hiragana: true,
-  katakana: true,
-  diacritics: false,
-  digraphs: false,
-  wi_we: false,
-  extended: false,
-  limit: 50,
-};
-
-const chooseRandomCard = (deck) => {
-  let randomIndex = Math.floor(Math.random() * deck.length);
-  return deck[randomIndex];
-};
-
 export default function App() {
   const [language, setLanguage] = useLocalStorage("language", INITIAL_LANGUAGE);
   const [settings, setSettings] = useLocalStorage("settings", INITIAL_SETTINGS);
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
   const [flipped, setFlipped] = useState(false);
-  const [deck, setDeck] = useState(mapToDeck(generateDict(settings)));
+  const [deck, setDeck] = useState(generateDeck(settings));
   const [card, setCard] = useState(chooseRandomCard(deck));
 
   useEffect(() => {
-    setDeck([...mapToDeck(generateDict(settings))]);
+    setDeck([...generateDeck(settings)]);
   }, [settings]);
 
   const flipFlashcard = () => {

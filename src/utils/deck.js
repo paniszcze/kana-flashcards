@@ -1,7 +1,7 @@
 import * as Hiragana from "../data/hiragana";
 import * as Katakana from "../data/katakana";
 
-export const generateDict = (settings) => {
+const generateDict = (settings) => {
   let newDict = [];
   if (settings.hiragana) {
     newDict.push(...Hiragana.basic);
@@ -39,7 +39,14 @@ export const generateDict = (settings) => {
   return newDict;
 };
 
-export const mapToDeck = (dict) =>
+const mapToDeck = (dict) =>
   dict.map((item) => {
     return { front: item.kana, back: item.romaji };
   });
+
+export const generateDeck = (settings) => mapToDeck(generateDict(settings));
+
+export const chooseRandomCard = (deck) => {
+  let randomIndex = Math.floor(Math.random() * deck.length);
+  return deck[randomIndex];
+};
