@@ -192,32 +192,32 @@ export default function Settings({
       <div className="range">
         <p>
           <label htmlFor="cardsNum">{contents.limit[language]}</label>
-          <div className="no-wrap">
-            <input
-              type="number"
-              id="limit"
-              name="limit"
-              min={LIMITS.lower}
-              max={LIMITS.upper}
-              placeholder={currSettings.limit}
-              value={currSettings.limit}
-              onChange={handleInput}
-            />
-            <span className="note">
-              (max. <strong>{LIMITS.upper}</strong>)
-            </span>
-          </div>
         </p>
-        {validationErrors.integer && (
-          <div className="error-message">{errors.integer[language]}</div>
-        )}
-        {!validationErrors.integer && validationErrors.range && (
-          <div className="error-message">
-            {errors.range[language]}{" "}
-            {Math.max(LIMITS.lower, count) + "-" + LIMITS.upper}!
-          </div>
-        )}
+        <div className="no-wrap">
+          <input
+            type="number"
+            id="limit"
+            name="limit"
+            min={LIMITS.lower}
+            max={LIMITS.upper}
+            placeholder={currSettings.limit}
+            value={currSettings.limit}
+            onChange={handleInput}
+          />
+          <span className="note">
+            (max. <strong>{LIMITS.upper}</strong>)
+          </span>
+        </div>
       </div>
+      {validationErrors.integer && (
+        <div className="error-message">{errors.integer[language]}</div>
+      )}
+      {!validationErrors.integer && validationErrors.range && (
+        <div className="error-message">
+          {errors.range[language]}{" "}
+          {Math.max(LIMITS.lower, count) + "-" + LIMITS.upper}!
+        </div>
+      )}
       <div className="button-container">
         <button className="green" onClick={() => handleAction("save")}>
           {contents.save[language]}

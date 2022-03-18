@@ -17,11 +17,17 @@
   padding-left: 6px;
 }
 
-.range p {
+.range {
+  margin: 1em 0;
   display: flex;
-  gap: 6px;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.range p {
+  display: inline;
+  margin: 0;
 }
 
 .range input {
@@ -34,6 +40,7 @@
 .no-wrap {
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   gap: 6px;
 }
 
