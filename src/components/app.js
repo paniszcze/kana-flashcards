@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 import * as Hiragana from "../data/hiragana";
 import * as Katakana from "../data/katakana";
@@ -8,6 +9,18 @@ import Content from "./content";
 import Footer from "./footer";
 
 import "../styles/app.css";
+
+const INITIAL_LANGUAGE = "EN";
+
+const INITIAL_SETTINGS = {
+  hiragana: true,
+  katakana: true,
+  diacritics: false,
+  digraphs: false,
+  wi_we: false,
+  extended: false,
+  limit: 50,
+};
 
 const generateDict = (settings) => {
   let newDict = [];
@@ -60,16 +73,8 @@ const chooseRandomCard = (deck) => {
 const deck = mapToDeck([...Hiragana.basic, ...Katakana.basic]);
 
 export default function App() {
-  const [language, setLanguage] = useState("EN");
-  const [settings, setSettings] = useState({
-    hiragana: true,
-    katakana: true,
-    diacritics: false,
-    digraphs: false,
-    wi_we: false,
-    extended: false,
-    limit: 50,
-  });
+  const [language, setLanguage] = useLocalStorage("language", INITIAL_LANGUAGE);
+  const [settings, setSettings] = useLocalStorage("settings", INITIAL_SETTINGS);
   const [count, setCount] = useState(0);
   const [answers, setAnswers] = useState([0, 0, 0]);
   const [flipped, setFlipped] = useState(false);
