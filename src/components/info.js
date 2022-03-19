@@ -4,7 +4,6 @@ import { contents } from "../assets/contents";
 
 import "../styles/info.css";
 
-
 export default function Info({ language, setShowInfo }) {
   return (
     <div className="Info">

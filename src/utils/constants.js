@@ -10,6 +10,12 @@ export const INITIAL_SETTINGS = {
   limit: 50,
 };
 
+// FLASHCARD LIMITS
+export const LIMITS = {
+  lower: 1,
+  upper: 200,
+};
+
 // SVG COUNTER
 export const STROKE = 7;
 export const RADIUS = 50 - STROKE / 2;

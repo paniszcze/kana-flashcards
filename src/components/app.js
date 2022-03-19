@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { generateDeck, chooseRandomCard } from "../utils/deck";
 
 import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "../utils/constants";
-import { generateDeck, chooseRandomCard } from "../utils/deck";
 
 import Header from "./header";
 import Content from "./content";
@@ -20,7 +20,7 @@ export default function App() {
   const [card, setCard] = useState(chooseRandomCard(deck));
 
   useEffect(() => {
-    setDeck([...generateDeck(settings)]);
+    setDeck(generateDeck(settings));
   }, [settings]);
 
   const flipFlashcard = () => {

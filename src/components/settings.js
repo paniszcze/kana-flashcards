@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { Interweave } from "interweave";
 
+import { LIMITS } from "../utils/constants";
 import { contents, errors } from "../assets/contents";
 
 import "../styles/settings.css";
-
-const LIMITS = {
-  lower: 1,
-  upper: 200,
-};
 
 export default function Settings({
   language,
@@ -27,6 +23,7 @@ export default function Settings({
     integer: false,
     range: false,
   });
+
   useEffect(() => {
     setValidationErrors(() => {
       return {

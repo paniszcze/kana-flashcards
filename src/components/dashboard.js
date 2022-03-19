@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { getDashoffset } from "../utils/counter";
 
 import { STROKE, RADIUS, CIRCUMFERENCE } from "../utils/constants";
-import { getDashoffset } from "../utils/counter";
+import { contents } from "../assets/contents";
 
 import Modal from "./modal";
 import Results from "./results";
-import { contents } from "../assets/contents";
 
 import "../styles/dashboard.css";
 

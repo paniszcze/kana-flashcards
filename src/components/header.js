@@ -1,9 +1,10 @@
 import { useState } from "react";
 
+import { languages, contents } from "../assets/contents";
+
 import Modal from "./modal";
 import Settings from "./settings";
 import Info from "./info";
-import { languages, contents } from "../assets/contents";
 
 import "../styles/header.css";
 
