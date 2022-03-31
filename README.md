@@ -16,8 +16,6 @@ Have fun!
 
 がんばってよ!
 
-![App settings screenshot](screenshot.png)
-
 ---
 
 ### TODOs
