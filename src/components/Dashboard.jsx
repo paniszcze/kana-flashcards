@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { contents } from "../assets/contents";
+import { contents } from "../utils/contents";
 
 import Modal from "./Modal";
 import Results from "./Results";
 import Counter from "./Counter";
 
-import "../styles/dashboard.css";
+import "../styles/Dashboard.css";
 
 export default function Dashboard({
   language,

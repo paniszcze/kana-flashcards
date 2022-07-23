@@ -1,4 +1,4 @@
-import "../styles/flashcard.css";
+import "../styles/Flashcard.css";
 
 export default function Flashcard({ card, flipped, flipFlashcard }) {
   return (

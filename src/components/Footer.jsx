@@ -1,6 +1,6 @@
-import { contents } from "../assets/contents";
+import { contents } from "../utils/contents";
 
-import "../styles/footer.css";
+import "../styles/Footer.css";
 
 export default function Footer({ language }) {
   return (

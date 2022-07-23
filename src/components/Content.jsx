@@ -1,7 +1,7 @@
 import Flashcard from "./Flashcard";
 import Dashboard from "./Dashboard";
 
-import "../styles/content.css";
+import "../styles/Content.css";
 
 export default function Content({
   language,

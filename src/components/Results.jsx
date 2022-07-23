@@ -1,8 +1,8 @@
 import { convertToProgressbar } from "../utils/progressbar";
 
-import { contents } from "../assets/contents";
+import { contents } from "../utils/contents";
 
-import "../styles/results.css";
+import "../styles/Results.css";
 
 export default function Results({
   language,

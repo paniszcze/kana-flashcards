@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { languages, contents } from "../assets/contents";
+import { languages, contents } from "../utils/contents";
 
 import Modal from "./Modal";
 import Settings from "./Settings";
 import Info from "./Info";
 
-import "../styles/header.css";
+import "../styles/Header.css";
 
 export default function Header({
   language,

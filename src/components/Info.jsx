@@ -1,8 +1,8 @@
 import { Interweave } from "interweave";
 
-import { contents } from "../assets/contents";
+import { contents } from "../utils/contents";
 
-import "../styles/info.css";
+import "../styles/Info.css";
 
 export default function Info({ language, setShowInfo }) {
   return (

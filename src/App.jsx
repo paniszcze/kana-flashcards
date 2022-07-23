@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { generateDeck, chooseRandomCard } from "../utils/deck";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { generateDeck, chooseRandomCard } from "./utils/deck";
 
-import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "../utils/constants";
+import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "./utils/constants";
 
-import Header from "./Header";
-import Content from "./Content";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
 
-import "../styles/app.css";
+import "./styles/App.css";
 
 export default function App() {
   const [language, setLanguage] = useLocalStorage("language", INITIAL_LANGUAGE);

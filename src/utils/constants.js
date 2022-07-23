@@ -20,3 +20,4 @@ export const LIMITS = {
 export const STROKE = 7;
 export const RADIUS = 50 - STROKE / 2;
 export const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+export const COLORS = ["#c23866", "#fed766", "#8fb339"];

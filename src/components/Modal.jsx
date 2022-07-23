@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-import "../styles/modal.css";
+import "../styles/Modal.css";
 
 export default function Modal({ setVisibility, children }) {
   const handleClickOutside = (e) => {

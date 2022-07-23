@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Interweave } from "interweave";
 
 import { LIMITS } from "../utils/constants";
-import { contents, errors } from "../assets/contents";
+import { contents, errors } from "../utils/contents";
 
-import "../styles/settings.css";
+import "../styles/Settings.css";
 
 export default function Settings({
   language,
