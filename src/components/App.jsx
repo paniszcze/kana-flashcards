@@ -4,9 +4,9 @@ import { generateDeck, chooseRandomCard } from "../utils/deck";
 
 import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "../utils/constants";
 
-import Header from "./header";
-import Content from "./content";
-import Footer from "./footer";
+import Header from "./Header";
+import Content from "./Content";
+import Footer from "./Footer";
 
 import "../styles/app.css";
 

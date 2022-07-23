@@ -1,5 +1,5 @@
-import Flashcard from "./flashcard.js";
-import Dashboard from "./dashboard.js";
+import Flashcard from "./Flashcard";
+import Dashboard from "./Dashboard";
 
 import "../styles/content.css";
 

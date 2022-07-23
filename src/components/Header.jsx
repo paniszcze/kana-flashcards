@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { languages, contents } from "../assets/contents";
 
-import Modal from "./modal";
-import Settings from "./settings";
-import Info from "./info";
+import Modal from "./Modal";
+import Settings from "./Settings";
+import Info from "./Info";
 
 import "../styles/header.css";
 
