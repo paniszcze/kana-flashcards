@@ -1,6 +1,7 @@
-import { convertToProgressbar } from "../utils/progressbar";
-
+import { COLORS } from "../utils/constants";
 import { contents } from "../utils/contents";
+
+import Progressbar from "./Progressbar";
 
 import "../styles/Results.css";
 
@@ -11,12 +12,11 @@ export default function Results({
   restartSession,
   setShowResults,
 }) {
-  const colors = ["#C23866", "#FED766", "#8FB339"];
   const resultData = answers.map((item, index) => {
     return {
       count: item,
       percentage: Math.floor((item / limit) * 100),
-      color: colors[index],
+      color: COLORS[index],
     };
   });
 
@@ -24,7 +24,7 @@ export default function Results({
     <div className="Results">
       <h3>{contents.results[language]}</h3>
       <div className="results-container">
-        {resultData.map((item, index) => convertToProgressbar(item, index))}
+        {resultData.map((item, index) => <Progressbar item={item} index={index} />)}
       </div>
       <div className="button-container">
         <button className="yellow" onClick={restartSession}>
