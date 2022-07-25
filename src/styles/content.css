@@ -1,13 +1,13 @@
 .Content {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
 }
 
 @media (max-width: 700px) {
-  .Content {
-    flex-direction: column;
-  }
+    .Content {
+        flex-direction: column;
+    }
 }

@@ -1,14 +1,14 @@
 .App {
-  width: 860px;
-  height: 560px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    width: 860px;
+    height: 560px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (max-width: 700px) {
-  .App {
-    height: 100%;
-  }
+    .App {
+        height: 100%;
+    }
 }

@@ -1,45 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 body {
-  margin: 0 20px;
-  padding: 0;
-  font-family: Nunito;
-  font-size: 1em;
-  text-align: center;
-  background: #fad4c0;
-  color: #2d2d34;
+    margin: 0 20px;
+    padding: 0;
+    font-family: Nunito;
+    font-size: 1em;
+    text-align: center;
+    background: #fad4c0;
+    color: #2d2d34;
 }
 
 #root {
-  height: 100vh;
-  display: flex;
+    height: 100vh;
+    display: flex;
 }
 
 .japanese {
-  font-family: "Kosugi Maru";
-  font-weight: normal;
+    font-family: 'Kosugi Maru';
+    font-weight: normal;
 }
 
 a,
 a:visited {
-  color: #c23866;
-  text-decoration: none;
+    color: #c23866;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #fee9e1;
-  background-color: #c23866;
-  border-radius: 3px;
+    color: #fee9e1;
+    background-color: #c23866;
+    border-radius: 3px;
 }
 
 button {
-  background: #704e2e;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #ffffff;
-  cursor: pointer;
-  font-family: Nunito;
-  font-size: 0.7em;
+    background: #704e2e;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Nunito;
+    font-size: 0.7em;
 }
