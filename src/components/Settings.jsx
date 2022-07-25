@@ -2,19 +2,14 @@ import { useState, useEffect, useContext } from 'react';
 import { ScoreContext } from '../contexts/ScoreContext';
 import { Interweave } from 'interweave';
 
-import { LIMITS } from '../utils/constants';
+import { LIMITS, RESET_VALIDATION_ERRORS } from '../utils/constants';
 import { contents, errors } from '../utils/contents';
 
 import '../styles/Settings.css';
 
 export default function Settings({ language, settings, setSettings, setShowSettings, changeCard }) {
     const [currSettings, setCurrSettings] = useState({ ...settings });
-    const [validationErrors, setValidationErrors] = useState({
-        syllabary: false,
-        extension: false,
-        integer: false,
-        range: false,
-    });
+    const [validationErrors, setValidationErrors] = useState(RESET_VALIDATION_ERRORS);
     const { score, setScore } = useContext(ScoreContext);
     const count = score.reduce((a, b) => a + b, 0);
 
@@ -55,35 +50,26 @@ export default function Settings({ language, settings, setSettings, setShowSetti
     const hasChanged = (objA, objB) => JSON.stringify(objA) !== JSON.stringify(objB);
 
     const handleAction = (action) => {
-        switch (action) {
-            case 'save':
-                if (!isValid()) {
-                    break;
-                }
-                if (hasChanged(settings, currSettings)) {
-                    setSettings({
-                        ...currSettings,
-                        limit: parseInt(currSettings.limit),
-                    });
-                    if (count !== currSettings.limit) {
-                        changeCard();
-                    }
-                } //falls through
-            case 'restart':
-                if (action === 'restart') {
-                    changeCard();
-                    setScore([0, 0, 0]);
-                } // falls through
-            case 'cancel':
-            default:
-                setValidationErrors({
-                    syllabary: false,
-                    extension: false,
-                    integer: false,
-                    range: false,
+        if (action === 'save') {
+            if (!isValid()) {
+                return;
+            }
+            if (hasChanged(settings, currSettings)) {
+                setSettings({
+                    ...currSettings,
+                    limit: parseInt(currSettings.limit),
                 });
-                setShowSettings(false);
+                if (count !== currSettings.limit) {
+                    changeCard();
+                }
+            }
+        } else if (action === 'restart') {
+            changeCard();
+            setScore([0, 0, 0]);
         }
+
+        setValidationErrors(RESET_VALIDATION_ERRORS);
+        setShowSettings(false);
     };
 
     return (
@@ -202,7 +188,9 @@ export default function Settings({ language, settings, setSettings, setShowSetti
                 </div>
             )}
             <div className="button-container">
-                <button className="green" onClick={() => handleAction('save')}>
+                <button
+                    className={isValid() ? 'green' : 'disabled'}
+                    onClick={() => handleAction('save')}>
                     {contents.save[language]}
                 </button>
                 <button className="yellow" onClick={() => handleAction('restart')}>

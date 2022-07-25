@@ -2,8 +2,6 @@ import { Interweave } from 'interweave';
 
 import { contents } from '../utils/contents';
 
-import '../styles/Info.css';
-
 export default function Info({ language, setShowInfo }) {
     return (
         <div className="Info">

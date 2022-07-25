@@ -2,7 +2,7 @@
 
 Learn Japanese kana with customisable flashcard deck.
 
-![App preview recording](screenrecording.gif)
+![App preview recording](docs/screenrecording.gif)
 
 ## About
 
@@ -22,14 +22,12 @@ Have fun!
 
 #### Rework:
 - centralise application state (Redux / React hooks)
-- rewrite logic of handling buttons in Settings or refactor into smaller functions
-- display answer count in Results modal outside colored bar if it doesn't fit in
 
 #### Bugs:
 - card change when saving Settings should happen once the dictionary has been updated
 - hide language toggle when clicking outside dropdown div
 
-#### New features:
+#### Features:
 - add logic to minimise card repetition
 - track the answers to show the least known kana in Results
 - write down general instructions in Info

@@ -10,6 +10,14 @@ export const INITIAL_SETTINGS = {
     limit: 50,
 };
 
+// VALIDATION ERRORS
+export const RESET_VALIDATION_ERRORS = {
+    syllabary: false,
+    extension: false,
+    integer: false,
+    range: false,
+};
+
 // FLASHCARD LIMITS
 export const LIMITS = {
     lower: 1,
