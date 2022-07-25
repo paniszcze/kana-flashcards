@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
 import { ScoreContext } from '../contexts/ScoreContext';
 import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 
@@ -10,7 +11,8 @@ import Counter from './Counter';
 
 import '../styles/Dashboard.css';
 
-export default function Dashboard({ language, card, changeCard, limit }) {
+export default function Dashboard({ card, changeCard, limit }) {
+    const { language } = useContext(LanguageContext);
     const [showResults, setShowResults] = useState(false);
     const { answerTrack, setAnswerTrack } = useContext(AnswersTrackContext);
     const { score, setScore } = useContext(ScoreContext);
@@ -100,7 +102,6 @@ export default function Dashboard({ language, card, changeCard, limit }) {
             {showResults && (
                 <Modal setVisibility={setShowResults}>
                     <Results
-                        language={language}
                         limit={limit}
                         restartSession={restartSession}
                         setShowResults={setShowResults}

@@ -3,16 +3,11 @@ import Dashboard from './Dashboard';
 
 import '../styles/Content.css';
 
-export default function Content({ language, settings, flipped, flipFlashcard, card, changeCard }) {
+export default function Content({ settings, flipped, flipFlashcard, card, changeCard }) {
     return (
         <main className="Content">
             <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
-            <Dashboard
-                language={language}
-                card={card}
-                changeCard={changeCard}
-                limit={settings.limit}
-            />
+            <Dashboard card={card} changeCard={changeCard} limit={settings.limit} />
         </main>
     );
 }

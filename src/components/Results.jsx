@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
 import { ScoreContext } from '../contexts/ScoreContext';
 import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 
@@ -10,7 +11,8 @@ import AnswerTile from './AnswerTile';
 
 import '../styles/Results.css';
 
-export default function Results({ language, limit, restartSession, setShowResults }) {
+export default function Results({ limit, restartSession, setShowResults }) {
+    const { language } = useContext(LanguageContext);
     const { answerTrack } = useContext(AnswersTrackContext);
     const { score } = useContext(ScoreContext);
     const resultData = score.map((item, index) => {

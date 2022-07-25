@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
 
 import { languages, contents } from '../utils/contents';
 
@@ -8,7 +9,8 @@ import Info from './Info';
 
 import '../styles/Header.css';
 
-export default function Header({ language, setLanguage, settings, setSettings, changeCard }) {
+export default function Header({ settings, setSettings, changeCard }) {
+    const { language, setLanguage } = useContext(LanguageContext);
     const [showLanguage, setShowLanguage] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -65,7 +67,6 @@ export default function Header({ language, setLanguage, settings, setSettings, c
             {showSettings && (
                 <Modal setVisibility={setShowSettings}>
                     <Settings
-                        language={language}
                         settings={settings}
                         setSettings={setSettings}
                         setShowSettings={setShowSettings}
@@ -76,7 +77,7 @@ export default function Header({ language, setLanguage, settings, setSettings, c
 
             {showInfo && (
                 <Modal setVisibility={setShowInfo}>
-                    <Info language={language} setShowInfo={setShowInfo} />
+                    <Info setShowInfo={setShowInfo} />
                 </Modal>
             )}
         </header>

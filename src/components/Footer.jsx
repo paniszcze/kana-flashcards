@@ -1,8 +1,13 @@
+import { useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
+
 import { contents } from '../utils/contents';
 
 import '../styles/Footer.css';
 
-export default function Footer({ language }) {
+export default function Footer() {
+    const { language } = useContext(LanguageContext);
+
     return (
         <footer className="Footer">
             {contents.built[language]}

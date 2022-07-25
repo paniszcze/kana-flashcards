@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
 import { ScoreContext } from '../contexts/ScoreContext';
 import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 import { Interweave } from 'interweave';
@@ -8,7 +9,8 @@ import { contents, errors } from '../utils/contents';
 
 import '../styles/Settings.css';
 
-export default function Settings({ language, settings, setSettings, setShowSettings, changeCard }) {
+export default function Settings({ settings, setSettings, setShowSettings, changeCard }) {
+    const { language } = useContext(LanguageContext);
     const [currSettings, setCurrSettings] = useState({ ...settings });
     const [validationErrors, setValidationErrors] = useState(RESET_VALIDATION_ERRORS);
     const { setAnswerTrack } = useContext(AnswersTrackContext);

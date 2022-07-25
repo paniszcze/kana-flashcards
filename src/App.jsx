@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { LanguageContext } from './contexts/LanguageContext';
 import { ScoreContext } from './contexts/ScoreContext';
 import { AnswersTrackContext } from './contexts/AnswersTrackContext';
 
@@ -52,26 +53,25 @@ export default function App() {
 
     return (
         <div className="App">
-            <ScoreContext.Provider value={{ score, setScore }}>
-                <AnswersTrackContext.Provider value={{ answerTrack, setAnswerTrack }}>
-                    <Header
-                        language={language}
-                        setLanguage={setLanguage}
-                        settings={settings}
-                        setSettings={setSettings}
-                        changeCard={changeCard}
-                    />
-                    <Content
-                        language={language}
-                        settings={settings}
-                        flipped={flipped}
-                        flipFlashcard={flipFlashcard}
-                        card={card}
-                        changeCard={changeCard}
-                    />
-                </AnswersTrackContext.Provider>
-            </ScoreContext.Provider>
-            <Footer language={language} />
+            <LanguageContext.Provider value={{ language, setLanguage }}>
+                <ScoreContext.Provider value={{ score, setScore }}>
+                    <AnswersTrackContext.Provider value={{ answerTrack, setAnswerTrack }}>
+                        <Header
+                            settings={settings}
+                            setSettings={setSettings}
+                            changeCard={changeCard}
+                        />
+                        <Content
+                            settings={settings}
+                            flipped={flipped}
+                            flipFlashcard={flipFlashcard}
+                            card={card}
+                            changeCard={changeCard}
+                        />
+                    </AnswersTrackContext.Provider>
+                </ScoreContext.Provider>
+                <Footer />
+            </LanguageContext.Provider>
         </div>
     );
 }

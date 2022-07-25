@@ -1,8 +1,12 @@
+import { useContext } from 'react';
+import { LanguageContext } from '../contexts/LanguageContext';
 import { Interweave } from 'interweave';
 
 import { contents } from '../utils/contents';
 
-export default function Info({ language, setShowInfo }) {
+export default function Info({ setShowInfo }) {
+    const { language } = useContext(LanguageContext);
+
     return (
         <div className="Info">
             <h3>{contents.info[language]}</h3>
