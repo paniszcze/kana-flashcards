@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ScoreContext } from "../contexts/ScoreContext";
 
 import { contents } from "../utils/contents";
 
@@ -8,16 +9,10 @@ import Counter from "./Counter";
 
 import "../styles/Dashboard.css";
 
-export default function Dashboard({
-  language,
-  changeCard,
-  limit,
-  count,
-  setCount,
-  answers,
-  setAnswers,
-}) {
+export default function Dashboard({ language, changeCard, limit }) {
   const [showResults, setShowResults] = useState(false);
+  const { score, setScore } = useContext(ScoreContext);
+  const count = score.reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     if (count >= limit) {
@@ -25,52 +20,50 @@ export default function Dashboard({
     }
   }, [count, limit]);
 
-  const handleAnswer = (answer) => {
+  const handleClick = (label) => {
     if (count < limit) {
-      setAnswers((prevAnswers) => {
-        let newAnswers = [...prevAnswers];
-        switch (answer) {
+      setScore((prevScore) => {
+        let newScore = [...prevScore];
+        switch (label) {
           case "red":
-            newAnswers[0] += 1;
+            newScore[0] += 1;
             break;
           case "yellow":
-            newAnswers[1] += 1;
+            newScore[1] += 1;
             break;
           case "green":
-            newAnswers[2] += 1;
+            newScore[2] += 1;
             break;
           default:
-            return prevAnswers;
+            return prevScore;
         }
-        return newAnswers;
+        return newScore;
       });
       if (count < limit - 1) {
         changeCard();
       }
-      setCount((prevCount) => prevCount + 1);
     } else {
       setShowResults(true);
     }
   };
 
   const restartSession = () => {
-    setCount(0);
-    setAnswers([0, 0, 0]);
+    setScore([0, 0, 0]);
     changeCard();
     setShowResults(false);
   };
 
   return (
     <div className="Dashboard">
-      <Counter count={count} answers={answers} limit={limit} />
+      <Counter limit={limit} />
       <div className="assessment">
-        <button className="red" onClick={() => handleAnswer("red")}>
+        <button className="red" onClick={() => handleClick("red")}>
           {contents.negative[language]}
         </button>
-        <button className="yellow" onClick={() => handleAnswer("yellow")}>
+        <button className="yellow" onClick={() => handleClick("yellow")}>
           {contents.neutral[language]}
         </button>
-        <button className="green" onClick={() => handleAnswer("green")}>
+        <button className="green" onClick={() => handleClick("green")}>
           {contents.positive[language]}
         </button>
       </div>
@@ -79,7 +72,6 @@ export default function Dashboard({
         <Modal setVisibility={setShowResults}>
           <Results
             language={language}
-            answers={answers}
             limit={limit}
             restartSession={restartSession}
             setShowResults={setShowResults}

@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ScoreContext } from "../contexts/ScoreContext";
+
 import { COLORS } from "../utils/constants";
 import { contents } from "../utils/contents";
 
@@ -7,12 +10,12 @@ import "../styles/Results.css";
 
 export default function Results({
   language,
-  answers,
   limit,
   restartSession,
   setShowResults,
 }) {
-  const resultData = answers.map((item, index) => {
+  const { score } = useContext(ScoreContext);
+  const resultData = score.map((item, index) => {
     return {
       count: item,
       percentage: Math.floor((item / limit) * 100),
@@ -24,7 +27,9 @@ export default function Results({
     <div className="Results">
       <h3>{contents.results[language]}</h3>
       <div className="results-container">
-        {resultData.map((item, index) => <Progressbar item={item} index={index} />)}
+        {resultData.map((item, index) => (
+          <Progressbar key={index} item={item} index={index} />
+        ))}
       </div>
       <div className="button-container">
         <button className="yellow" onClick={restartSession}>

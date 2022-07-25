@@ -13,9 +13,6 @@ export default function Header({
   setLanguage,
   settings,
   setSettings,
-  count,
-  setCount,
-  setAnswers,
   changeCard,
 }) {
   const [showLanguage, setShowLanguage] = useState(false);
@@ -81,9 +78,6 @@ export default function Header({
             settings={settings}
             setSettings={setSettings}
             setShowSettings={setShowSettings}
-            count={count}
-            setCount={setCount}
-            setAnswers={setAnswers}
             changeCard={changeCard}
           />
         </Modal>

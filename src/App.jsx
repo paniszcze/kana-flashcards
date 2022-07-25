@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import { generateDeck, chooseRandomCard } from "./utils/deck";
+import { ScoreContext } from "./contexts/ScoreContext";
 
 import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from "./utils/constants";
+import { generateDeck, chooseRandomCard } from "./utils/deck";
 
 import Header from "./components/Header";
 import Content from "./components/Content";
@@ -13,8 +14,7 @@ import "./styles/App.css";
 export default function App() {
   const [language, setLanguage] = useLocalStorage("language", INITIAL_LANGUAGE);
   const [settings, setSettings] = useLocalStorage("settings", INITIAL_SETTINGS);
-  const [count, setCount] = useState(0);
-  const [answers, setAnswers] = useState([0, 0, 0]);
+  const [score, setScore] = useState([0, 0, 0]);
   const [flipped, setFlipped] = useState(false);
   const [deck, setDeck] = useState(generateDeck(settings));
   const [card, setCard] = useState(chooseRandomCard(deck));
@@ -50,29 +50,24 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header
-        language={language}
-        setLanguage={setLanguage}
-        settings={settings}
-        setSettings={setSettings}
-        count={count}
-        setCount={setCount}
-        setAnswers={setAnswers}
-        changeCard={changeCard}
-      />
-      <Content
-        language={language}
-        settings={settings}
-        count={count}
-        setCount={setCount}
-        answers={answers}
-        setAnswers={setAnswers}
-        flipped={flipped}
-        flipFlashcard={flipFlashcard}
-        card={card}
-        changeCard={changeCard}
-      />
-      <Footer language={language} />
+      <ScoreContext.Provider value={{ score, setScore }}>
+        <Header
+          language={language}
+          setLanguage={setLanguage}
+          settings={settings}
+          setSettings={setSettings}
+          changeCard={changeCard}
+        />
+        <Content
+          language={language}
+          settings={settings}
+          flipped={flipped}
+          flipFlashcard={flipFlashcard}
+          card={card}
+          changeCard={changeCard}
+        />
+        <Footer language={language} />
+      </ScoreContext.Provider>
     </div>
   );
 }

@@ -6,10 +6,6 @@ import "../styles/Content.css";
 export default function Content({
   language,
   settings,
-  count,
-  setCount,
-  answers,
-  setAnswers,
   flipped,
   flipFlashcard,
   card,
@@ -22,10 +18,6 @@ export default function Content({
         language={language}
         changeCard={changeCard}
         limit={settings.limit}
-        count={count}
-        setCount={setCount}
-        answers={answers}
-        setAnswers={setAnswers}
       />
     </main>
   );

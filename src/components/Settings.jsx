@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ScoreContext } from "../contexts/ScoreContext";
 import { Interweave } from "interweave";
 
 import { LIMITS } from "../utils/constants";
@@ -11,9 +12,6 @@ export default function Settings({
   settings,
   setSettings,
   setShowSettings,
-  count,
-  setCount,
-  setAnswers,
   changeCard,
 }) {
   const [currSettings, setCurrSettings] = useState({ ...settings });
@@ -23,6 +21,8 @@ export default function Settings({
     integer: false,
     range: false,
   });
+  const { score, setScore } = useContext(ScoreContext);
+  const count = score.reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     setValidationErrors(() => {
@@ -79,8 +79,7 @@ export default function Settings({
       case "restart":
         if (action === "restart") {
           changeCard();
-          setCount(0);
-          setAnswers([0, 0, 0]);
+          setScore([0, 0, 0]);
         } // falls through
       case "cancel":
       default:
