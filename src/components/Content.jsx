@@ -7,7 +7,12 @@ export default function Content({ language, settings, flipped, flipFlashcard, ca
     return (
         <main className="Content">
             <Flashcard card={card} flipped={flipped} flipFlashcard={flipFlashcard} />
-            <Dashboard language={language} changeCard={changeCard} limit={settings.limit} />
+            <Dashboard
+                language={language}
+                card={card}
+                changeCard={changeCard}
+                limit={settings.limit}
+            />
         </main>
     );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { ScoreContext } from '../contexts/ScoreContext';
+import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 
 import { contents } from '../utils/contents';
 
@@ -9,8 +10,9 @@ import Counter from './Counter';
 
 import '../styles/Dashboard.css';
 
-export default function Dashboard({ language, changeCard, limit }) {
+export default function Dashboard({ language, card, changeCard, limit }) {
     const [showResults, setShowResults] = useState(false);
+    const { answerTrack, setAnswerTrack } = useContext(AnswersTrackContext);
     const { score, setScore } = useContext(ScoreContext);
     const count = score.reduce((a, b) => a + b, 0);
 
@@ -39,6 +41,32 @@ export default function Dashboard({ language, changeCard, limit }) {
                 }
                 return newScore;
             });
+            setAnswerTrack((prevTrack) => {
+                let newTrack = { ...answerTrack };
+                if (!newTrack[card.front]) {
+                    newTrack[card.front] = {
+                        translation: card.back,
+                        positive: 0,
+                        neutral: 0,
+                        negative: 0,
+                    };
+                }
+                switch (label) {
+                    case 'red':
+                        newTrack[card.front].negative++;
+                        break;
+                    case 'yellow':
+                        newTrack[card.front].neutral++;
+                        break;
+                    case 'green':
+                        newTrack[card.front].positive++;
+                        break;
+                    default:
+                        return prevTrack;
+                }
+                return newTrack;
+            });
+
             if (count < limit - 1) {
                 changeCard();
             }
@@ -49,6 +77,7 @@ export default function Dashboard({ language, changeCard, limit }) {
 
     const restartSession = () => {
         setScore([0, 0, 0]);
+        setAnswerTrack({});
         changeCard();
         setShowResults(false);
     };

@@ -29,6 +29,5 @@ Have fun!
 
 #### Features:
 - add logic to minimise card repetition
-- track the answers to show the least known kana in Results
 - write down general instructions in Info
 - add basic keyboard navigation

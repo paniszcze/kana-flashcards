@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { ScoreContext } from '../contexts/ScoreContext';
+import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 import { Interweave } from 'interweave';
 
 import { LIMITS, RESET_VALIDATION_ERRORS } from '../utils/constants';
@@ -10,6 +11,7 @@ import '../styles/Settings.css';
 export default function Settings({ language, settings, setSettings, setShowSettings, changeCard }) {
     const [currSettings, setCurrSettings] = useState({ ...settings });
     const [validationErrors, setValidationErrors] = useState(RESET_VALIDATION_ERRORS);
+    const { setAnswerTrack } = useContext(AnswersTrackContext);
     const { score, setScore } = useContext(ScoreContext);
     const count = score.reduce((a, b) => a + b, 0);
 
@@ -66,6 +68,7 @@ export default function Settings({ language, settings, setSettings, setShowSetti
         } else if (action === 'restart') {
             changeCard();
             setScore([0, 0, 0]);
+            setAnswerTrack({});
         }
 
         setValidationErrors(RESET_VALIDATION_ERRORS);

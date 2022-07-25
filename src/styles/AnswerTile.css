@@ -1,0 +1,16 @@
+.tile {
+    padding: 0.8em;
+    background-color: #fee9e1;
+    border-radius: 3px;
+}
+
+.tile-header {
+    margin-bottom: 0.4em;
+    font-size: 1.4em;
+}
+
+.tile-subheader {
+    margin-bottom: 0.6em;
+    font-size: 1em;
+    color: #704e2e;
+}
