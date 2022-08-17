@@ -1,6 +1,6 @@
 /* .Results {} */
 
-.results-container {
+.progress-bars {
     margin-bottom: 26px;
     width: 100%;
     display: flex;
@@ -9,7 +9,19 @@
 }
 
 .answer-tiles {
+    max-height: 35vh;
+    overflow-y: scroll;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(4.4em, 1fr));
     gap: 0.6em;
+}
+
+summary {
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+details[open] summary {
+    margin-bottom: 1em;
 }

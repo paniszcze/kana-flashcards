@@ -100,6 +100,11 @@ export const contents = {
         EN: 'Number of flashcards in deck:',
         PL: 'Liczba fiszek w talii:',
     },
+    //RESULTS
+    details: {
+        EN: 'Details',
+        PL: 'Szczegóły',
+    },
     // INFO
     infoText: {
         EN: `<p>Welcome to <strong>Kana Flashcards</strong> – a simple web app for
