@@ -525,7 +525,7 @@ export const diacritic_digraphs = [
     },
     {
         id: 'BYO',
-        kana: 'ヒョ',
+        kana: 'ビョ',
         romaji: 'byo',
     },
     {
