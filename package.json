@@ -1,7 +1,7 @@
 {
   "name": "kana-flashcards",
   "version": "0.1.1",
-  "homepage": "https://paniszcze.github.io/kana-flashcards",
+  "homepage": "https://danielpanski.dev/kana-flashcards",
   "private": true,
   "dependencies": {
     "interweave": "^13.0.0",
