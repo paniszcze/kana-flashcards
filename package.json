@@ -4,9 +4,13 @@
   "homepage": "https://danielpanski.dev/kana-flashcards",
   "private": true,
   "dependencies": {
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
     "interweave": "^13.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "typescript": "^4.8.3"
   },
   "scripts": {
     "format": "npx prettier --write src/",

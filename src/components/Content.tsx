@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Flashcard from './Flashcard';
 import Dashboard from './Dashboard';
 

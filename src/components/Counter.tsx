@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ScoreContext } from '../contexts/ScoreContext';
 
 import { STROKE, RADIUS, CIRCUMFERENCE, COLORS } from '../utils/constants';
@@ -20,7 +20,7 @@ export default function Counter({ limit }) {
                     cx="50"
                     cy="50"
                     r={RADIUS}></circle>
-                {[...Array(score.length).keys()].map((index) => (
+                {Array.from(Array(score.length).keys()).map((index) => (
                     <circle
                         key={index}
                         style={{

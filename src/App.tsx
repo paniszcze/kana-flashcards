@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { LanguageContext } from './contexts/LanguageContext';
 import { ScoreContext } from './contexts/ScoreContext';

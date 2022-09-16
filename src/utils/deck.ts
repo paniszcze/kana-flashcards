@@ -1,8 +1,14 @@
 import * as Hiragana from '../data/hiragana';
 import * as Katakana from '../data/katakana';
 
+interface Record {
+    id: string;
+    kana: string;
+    romaji: string;
+}
+
 const generateDict = (settings) => {
-    let newDict = [];
+    let newDict: Array<Record> = [];
     if (settings.hiragana) {
         newDict.push(...Hiragana.basic);
         if (settings.diacritics) {

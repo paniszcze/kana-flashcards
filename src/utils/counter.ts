@@ -1,4 +1,4 @@
-import { CIRCUMFERENCE } from '../utils/constants';
+import { CIRCUMFERENCE } from './constants';
 
 export const getDashoffset = (array, start, limit) => {
     let sum = array.slice(start).reduce((a, b) => a + b, 0);

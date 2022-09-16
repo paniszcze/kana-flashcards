@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '../styles/Flashcard.css';
 
 export default function Flashcard({ card, flipped, flipFlashcard }) {

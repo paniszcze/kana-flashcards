@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { LanguageContext } from '../contexts/LanguageContext';
 
 import { languages, contents } from '../utils/contents';
@@ -20,7 +20,7 @@ export default function Header({ settings, setSettings, changeCard }) {
     };
 
     const changeLanguage = (index) => {
-        setLanguage(languages[index].id);
+        setLanguage(languages[index]?.id);
         setShowLanguage(false);
     };
 
@@ -39,7 +39,7 @@ export default function Header({ settings, setSettings, changeCard }) {
                         <div className="dropdown-content">
                             {languages.map((item, index) => (
                                 <button
-                                    id={index}
+                                    id={`${index}`}
                                     key={item.id}
                                     onClick={() => changeLanguage(index)}>
                                     {item.id}
