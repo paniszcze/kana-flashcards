@@ -2,18 +2,18 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { Interweave } from 'interweave';
 
-import { contents } from '../utils/contents';
+import { localisation } from '../data/localisation';
 
 export default function Info({ setShowInfo }) {
   const { language } = useContext(LanguageContext);
 
   return (
     <div className="Info">
-      <h3>{contents.info[language]}</h3>
-      <Interweave content={contents.infoText[language]} />
+      <h3>{localisation[language].info}</h3>
+      <Interweave content={localisation[language].infoText} />
       <div className="button-container">
         <button className="red" onClick={() => setShowInfo(false)}>
-          {contents.close[language]}
+          {localisation[language].close}
         </button>
       </div>
     </div>

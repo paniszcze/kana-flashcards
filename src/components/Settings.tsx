@@ -5,7 +5,7 @@ import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 import { Interweave } from 'interweave';
 
 import { LIMITS, RESET_VALIDATION_ERRORS } from '../utils/constants';
-import { contents, errors } from '../utils/contents';
+import { localisation } from '../data/localisation';
 
 import '../styles/Settings.css';
 
@@ -87,8 +87,8 @@ export default function Settings({
 
   return (
     <div className="Settings">
-      <h3>{contents.settings[language]}</h3>
-      <p>{contents.syllabary[language]}</p>
+      <h3>{localisation[language].settings}</h3>
+      <p>{localisation[language].syllabary}</p>
       <div className="choice">
         <input
           type="checkbox"
@@ -97,7 +97,7 @@ export default function Settings({
           checked={currSettings.hiragana}
           onChange={handleCheckbox}
         />
-        <label htmlFor="hiragana">{contents.hiragana[language]}</label>
+        <label htmlFor="hiragana">{localisation[language].hiragana}</label>
       </div>
       <div className="choice">
         <input
@@ -107,12 +107,12 @@ export default function Settings({
           checked={currSettings.katakana}
           onChange={handleCheckbox}
         />
-        <label htmlFor="katakana">{contents.katakana[language]}</label>
+        <label htmlFor="katakana">{localisation[language].katakana}</label>
       </div>
       {validationErrors.syllabary && (
-        <div className="error-message">{errors.syllabary[language]}</div>
+        <div className="error-message">{localisation[language].syllabary}</div>
       )}
-      <p>{contents.include[language]}</p>
+      <p>{localisation[language].include}</p>
       <div className="choice">
         <input
           type="checkbox"
@@ -122,7 +122,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="diacritics">
-          <Interweave content={contents.diacritics[language]} />
+          <Interweave content={localisation[language].diacritics} />
         </label>
       </div>
       <div className="choice">
@@ -134,7 +134,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="digraphs">
-          <Interweave content={contents.digraphs[language]} />
+          <Interweave content={localisation[language].digraphs} />
         </label>
       </div>
       <div className="choice">
@@ -146,7 +146,7 @@ export default function Settings({
           onChange={handleCheckbox}
         />
         <label htmlFor="wi_we">
-          <Interweave content={contents.wi_we[language]} />
+          <Interweave content={localisation[language].wi_we} />
         </label>
       </div>
       <div
@@ -171,14 +171,14 @@ export default function Settings({
               : true
           }
         />
-        <label htmlFor="extended">{contents.extension[language]}</label>
+        <label htmlFor="extended">{localisation[language].extension}</label>
       </div>
       {validationErrors.extension && (
-        <div className="error-message">{errors.extension[language]}</div>
+        <div className="error-message">{localisation[language].extension}</div>
       )}
       <div className="range">
         <p>
-          <label htmlFor="cardsNum">{contents.limit[language]}</label>
+          <label htmlFor="cardsNum">{localisation[language].limit}</label>
         </p>
         <div className="no-wrap">
           <input
@@ -197,11 +197,11 @@ export default function Settings({
         </div>
       </div>
       {validationErrors.integer && (
-        <div className="error-message">{errors.integer[language]}</div>
+        <div className="error-message">{localisation[language].integer}</div>
       )}
       {!validationErrors.integer && validationErrors.range && (
         <div className="error-message">
-          {errors.range[language]}{' '}
+          {localisation[language].range}{' '}
           {Math.max(LIMITS.lower, count) + '-' + LIMITS.upper}!
         </div>
       )}
@@ -209,13 +209,13 @@ export default function Settings({
         <button
           className={isValid() ? 'green' : 'disabled'}
           onClick={() => handleAction('save')}>
-          {contents.save[language]}
+          {localisation[language].save}
         </button>
         <button className="yellow" onClick={() => handleAction('restart')}>
-          {contents.restart[language]}
+          {localisation[language].restart}
         </button>
         <button className="red" onClick={() => handleAction('cancel')}>
-          {contents.cancel[language]}
+          {localisation[language].cancel}
         </button>
       </div>
     </div>

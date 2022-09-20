@@ -4,7 +4,7 @@ import { ScoreContext } from '../contexts/ScoreContext';
 import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 
 import { COLORS } from '../utils/constants';
-import { contents } from '../utils/contents';
+import { localisation } from '../data/localisation';
 
 import Progressbar from './Progressbar';
 import AnswerTile from './AnswerTile';
@@ -24,15 +24,15 @@ export default function Results({ limit, restartSession, setShowResults }) {
   });
 
   return (
-    <section className="Results">
-      <h3>{contents.results[language]}</h3>
+    <section>
+      <h3>{localisation[language].results}</h3>
       <div className="progress-bars">
         {resultData.map((item, index) => (
           <Progressbar key={index} item={item} />
         ))}
       </div>
       <details>
-        <summary>{contents.details[language]}</summary>
+        <summary>{localisation[language].details}</summary>
         <div className="answer-tiles">
           {Object.entries(answerTrack).map(([kana, details], index) => (
             <AnswerTile key={index} kana={kana} details={details} />
@@ -41,10 +41,10 @@ export default function Results({ limit, restartSession, setShowResults }) {
       </details>
       <div className="button-container">
         <button className="yellow" onClick={restartSession}>
-          {contents.restart[language]}
+          {localisation[language].restart}
         </button>
         <button className="red" onClick={() => setShowResults(false)}>
-          {contents.close[language]}
+          {localisation[language].close}
         </button>
       </div>
     </section>

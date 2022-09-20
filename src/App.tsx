@@ -8,8 +8,9 @@ import { INITIAL_LANGUAGE, INITIAL_SETTINGS } from './utils/constants';
 import { generateDeck, chooseRandomCard } from './utils/deck';
 
 import Header from './components/Header';
-import Content from './components/Content';
 import Footer from './components/Footer';
+import Flashcard from './components/Flashcard';
+import Dashboard from './components/Dashboard';
 
 import './styles/App.css';
 
@@ -61,13 +62,18 @@ export default function App() {
               setSettings={setSettings}
               changeCard={changeCard}
             />
-            <Content
-              settings={settings}
-              flipped={flipped}
-              flipFlashcard={flipFlashcard}
-              card={card}
-              changeCard={changeCard}
-            />
+            <main>
+              <Flashcard
+                card={card}
+                flipped={flipped}
+                flipFlashcard={flipFlashcard}
+              />
+              <Dashboard
+                card={card}
+                changeCard={changeCard}
+                limit={settings.limit}
+              />
+            </main>
           </AnswersTrackContext.Provider>
         </ScoreContext.Provider>
         <Footer />

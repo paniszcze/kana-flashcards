@@ -1,4 +1,4 @@
-.Header {
+header {
   padding: 30px 40px;
   background: #fee9e1;
   border-radius: 8px;
@@ -11,13 +11,13 @@
 }
 
 @media (max-width: 700px) {
-  .Header {
+  header {
     border-radius: 0 0 8px 8px;
   }
 }
 
 @media (max-width: 600px) {
-  .Header {
+  header {
     padding: 25px 20px;
     flex-direction: column;
     gap: 10px;

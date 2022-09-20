@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { ScoreContext } from '../contexts/ScoreContext';
 
 import { STROKE, RADIUS, CIRCUMFERENCE, COLORS } from '../utils/constants';
-import { getDashoffset } from '../utils/counter';
 
 import '../styles/Counter.css';
+
+const getDashoffset = (array, start, limit) => {
+  let sum = array.slice(start).reduce((a, b) => a + b, 0);
+  return CIRCUMFERENCE - Math.floor((sum / limit) * CIRCUMFERENCE);
+};
 
 export default function Counter({ limit }) {
   const { score } = useContext(ScoreContext);

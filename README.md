@@ -15,15 +15,3 @@ App behaviour can be modified to fully adapt to learner's knowledge level and pr
 Have fun!
 
 がんばってよ!
-
----
-
-### TODOs
-
-#### Bugs:
-- card change when saving Settings should happen once the dictionary has been updated
-
-#### Features:
-- add logic to minimise card repetition
-- write down general instructions in Info
-- add basic keyboard navigation

@@ -1,8 +1,7 @@
 import React, { useRef, useContext, useState } from 'react';
-import { LanguageContext } from '../contexts/LanguageContext';
-
 import { useClickOutside } from '../hooks/useClickOutside';
-import { languages, contents } from '../utils/contents';
+import { LanguageContext } from '../contexts/LanguageContext';
+import { languages, localisation } from '../data/localisation';
 
 import Modal from './Modal';
 import Settings from './Settings';
@@ -23,16 +22,11 @@ export default function Header({ settings, setSettings, changeCard }) {
     setShowLanguage((prevShowLanguage) => !prevShowLanguage);
   };
 
-  const changeLanguage = (index) => {
-    setLanguage(languages[index]?.id);
-    setShowLanguage(false);
-  };
-
   return (
-    <header className="Header">
+    <header>
       <div className="title-container">
-        <h1 className="title">{contents.title[language]}</h1>
-        <h2 className="subtitle">{contents.subtitle[language]}</h2>
+        <h1 className="title">{localisation[language].title}</h1>
+        <h2 className="subtitle">{localisation[language].subtitle}</h2>
       </div>
       <nav>
         <div className={`dropdown${showLanguage ? ' show-dropdown' : ''}`}>
@@ -48,26 +42,18 @@ export default function Header({ settings, setSettings, changeCard }) {
                 <button
                   id={`${index}`}
                   key={item.id}
-                  onClick={() => changeLanguage(index)}>
+                  onClick={() => setLanguage(languages[index]?.id)}>
                   {item.id}
                 </button>
               ))}
             </div>
           )}
         </div>
-        <button
-          onClick={() => {
-            setShowSettings(true);
-            setShowLanguage(false);
-          }}>
-          {contents.settings[language]}
+        <button onClick={() => setShowSettings(true)}>
+          {localisation[language].settings}
         </button>
-        <button
-          onClick={() => {
-            setShowInfo(true);
-            setShowLanguage(false);
-          }}>
-          {contents.info[language]}
+        <button onClick={() => setShowInfo(true)}>
+          {localisation[language].info}
         </button>
       </nav>
 

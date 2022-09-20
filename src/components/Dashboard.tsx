@@ -3,7 +3,7 @@ import { LanguageContext } from '../contexts/LanguageContext';
 import { ScoreContext } from '../contexts/ScoreContext';
 import { AnswersTrackContext } from '../contexts/AnswersTrackContext';
 
-import { contents } from '../utils/contents';
+import { localisation } from '../data/localisation';
 
 import Modal from './Modal';
 import Results from './Results';
@@ -89,13 +89,13 @@ export default function Dashboard({ card, changeCard, limit }) {
       <Counter limit={limit} />
       <div className="assessment">
         <button className="red" onClick={() => handleClick('red')}>
-          {contents.negative[language]}
+          {localisation[language].negative}
         </button>
         <button className="yellow" onClick={() => handleClick('yellow')}>
-          {contents.neutral[language]}
+          {localisation[language].neutral}
         </button>
         <button className="green" onClick={() => handleClick('green')}>
-          {contents.positive[language]}
+          {localisation[language].positive}
         </button>
       </div>
 
