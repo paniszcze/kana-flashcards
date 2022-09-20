@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { LanguageContext } from '../contexts/LanguageContext';
 
+import { useClickOutside } from '../hooks/useClickOutside';
 import { languages, contents } from '../utils/contents';
 
 import Modal from './Modal';
@@ -14,6 +15,9 @@ export default function Header({ settings, setSettings, changeCard }) {
     const [showLanguage, setShowLanguage] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
+
+    const languageButtonRef = useRef<HTMLButtonElement>(null);
+    useClickOutside({ ref: languageButtonRef, onClose: setShowLanguage });
 
     const toggleLanguageDropdown = () => {
         setShowLanguage((prevShowLanguage) => !prevShowLanguage);
@@ -32,7 +36,10 @@ export default function Header({ settings, setSettings, changeCard }) {
             </div>
             <nav>
                 <div className={`dropdown${showLanguage ? ' show-dropdown' : ''}`}>
-                    <button className="main-language" onClick={toggleLanguageDropdown}>
+                    <button
+                        ref={languageButtonRef}
+                        className="main-language"
+                        onClick={toggleLanguageDropdown}>
                         {language}
                     </button>
                     {showLanguage && (
