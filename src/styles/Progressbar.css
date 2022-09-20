@@ -1,14 +1,14 @@
 .result-track {
-    background-color: rgba(176, 158, 153, 0.6);
-    border-radius: 3px;
-    width: 100%;
+  background-color: rgba(176, 158, 153, 0.6);
+  border-radius: 3px;
+  width: 100%;
 }
 
 .result-bar {
-    box-sizing: border-box;
-    text-align: right;
-    padding: 0.2em 1em 0.1em 0.44em;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 3px;
+  box-sizing: border-box;
+  text-align: right;
+  padding: 0.2em 1em 0.1em 0.44em;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 3px;
 }

@@ -1,53 +1,53 @@
 .Dashboard {
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 8px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
 @media (max-width: 700px) {
-    .Dashboard {
-        flex-direction: row;
-    }
+  .Dashboard {
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 300px) {
-    .Dashboard {
-        padding: 30px 20px;
-        gap: 20px;
-    }
+  .Dashboard {
+    padding: 30px 20px;
+    gap: 20px;
+  }
 }
 
 /* ASSESSMENT BUTTONS */
 
 .assessment {
-    display: flex;
-    gap: 0.3em;
+  display: flex;
+  gap: 0.3em;
 }
 
 @media (max-width: 480px) {
-    .assessment {
-        flex-direction: column;
-        gap: 0.5em;
-    }
+  .assessment {
+    flex-direction: column;
+    gap: 0.5em;
+  }
 }
 
 .red:hover {
-    background: #c23866;
-    color: #fff;
+  background: #c23866;
+  color: #fff;
 }
 
 .yellow:hover {
-    background: #fed766;
-    color: #fff;
+  background: #fed766;
+  color: #fff;
 }
 
 .green:hover {
-    background: #8fb339;
-    color: #fff;
+  background: #8fb339;
+  color: #fff;
 }

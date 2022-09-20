@@ -1,27 +1,27 @@
 // INITIAL CONFIGURATION
 export const INITIAL_LANGUAGE = 'EN';
 export const INITIAL_SETTINGS = {
-    hiragana: true,
-    katakana: true,
-    diacritics: false,
-    digraphs: false,
-    wi_we: false,
-    extended: false,
-    limit: 50,
+  hiragana: true,
+  katakana: true,
+  diacritics: false,
+  digraphs: false,
+  wi_we: false,
+  extended: false,
+  limit: 50,
 };
 
 // VALIDATION ERRORS
 export const RESET_VALIDATION_ERRORS = {
-    syllabary: false,
-    extension: false,
-    integer: false,
-    range: false,
+  syllabary: false,
+  extension: false,
+  integer: false,
+  range: false,
 };
 
 // FLASHCARD LIMITS
 export const LIMITS = {
-    lower: 1,
-    upper: 200,
+  lower: 1,
+  upper: 200,
 };
 
 // SVG COUNTER
