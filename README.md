@@ -20,12 +20,8 @@ Have fun!
 
 ### TODOs
 
-#### Rework:
-- centralise application state (Redux / React hooks)
-
 #### Bugs:
 - card change when saving Settings should happen once the dictionary has been updated
-- hide language toggle when clicking outside dropdown div
 
 #### Features:
 - add logic to minimise card repetition
